@@ -1,0 +1,41 @@
+/**
+ * Color tokens
+ *
+ * Source of truth: DESIGN.md → "Color Palette"
+ * Accent hex confirmed with stakeholder: #B08D57 (warm metallic bronze)
+ *
+ * These are exposed via Tailwind v4's `@theme` directive, which means:
+ *   - `bg-background`, `text-foreground`, `border-border`, `bg-accent`, etc.
+ *     become available as Tailwind utilities automatically.
+ *   - The same values are usable as raw CSS variables (`var(--color-accent)`)
+ *     in non-Tailwind contexts, e.g. GSAP color tweens, inline SVG fills.
+ *
+ * Do not add new colors here without updating DESIGN.md first —
+ * CLAUDE.md explicitly forbids inventing colors outside the design system.
+ */
+
+@theme {
+  /* Backgrounds */
+  --color-background: #0b0b0b;
+  --color-background-secondary: #121212;
+  --color-surface: #1a1a1a;
+
+  /* Text */
+  --color-foreground: #ffffff;
+  --color-foreground-muted: #b5b5b5;
+
+  /* Accent — warm metallic bronze */
+  --color-accent: #b08d57;
+  --color-accent-foreground: #0b0b0b;
+
+  /*
+   * Derived accent states, not new hues — same bronze at different
+   * lightness/opacity for interactive states, per DESIGN.md's call for
+   * "subtle hover states".
+   */
+  --color-accent-hover: #c49a64;
+  --color-accent-muted: rgb(176 141 87 / 12%);
+
+  /* Border */
+  --color-border: rgb(255 255 255 / 8%);
+}

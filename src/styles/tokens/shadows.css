@@ -1,0 +1,32 @@
+/**
+ * Shadow tokens
+ *
+ * Source: DESIGN.md → "UI" (soft gradients, subtle hover states) and
+ * "Color Palette" (near-black backgrounds: #0B0B0B / #121212 / #1A1A1A).
+ *
+ * Standard black drop-shadows are invisible on a background this dark, so
+ * elevation here is communicated two ways instead:
+ *   1. A faint light-based glow (very low-opacity white), for hover/focus
+ *      lift on cards and buttons.
+ *   2. Layering via the `surface` color token itself (see colors.css) —
+ *      lighter surface = "closer" to the viewer. Shadows are a secondary,
+ *      subtle accent on top of that, never the primary depth cue.
+ */
+
+@theme {
+  --shadow-none: none;
+
+  /* Resting elevation — barely-there separation from background */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+
+  /* Card / panel default elevation */
+  --shadow-md: 0 4px 16px rgb(0 0 0 / 35%), 0 1px 0 rgb(255 255 255 / 4%);
+
+  /* Hover / lifted state — subtle warm glow using the accent, for
+     interactive elements that should feel "activated" */
+  --shadow-lg: 0 12px 32px rgb(0 0 0 / 45%), 0 0 0 1px rgb(255 255 255 / 6%);
+
+  /* Focus ring companion shadow — pairs with :focus-visible, see
+     button.tsx — soft bronze glow rather than a hard outline */
+  --shadow-focus: 0 0 0 3px rgb(176 141 87 / 35%);
+}

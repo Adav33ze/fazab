@@ -1,0 +1,88 @@
+/**
+ * Typography tokens
+ *
+ * Source: DESIGN.md → "Typography" (large headings, editorial spacing,
+ * strong hierarchy, minimal font weights) + stakeholder-confirmed pairing.
+ *
+ * Font roles:
+ *   --font-display  Cormorant Garamond  → hero/editorial headlines
+ *   --font-heading  Geist               → section headings
+ *   --font-body     Inter               → running text
+ *   --font-mono     Geist Mono          → labels, numerals, technical UI
+ *
+ * NOTE: these variables are expected to be populated by `next/font`'s
+ * `variable` option in `app/layout.tsx` (out of scope for this
+ * design-system-only task). The names below match that convention exactly:
+ *
+ *   const cormorant = Cormorant_Garamond({ variable: "--font-display", ... })
+ *   const geist      = Geist({ variable: "--font-heading", ... })
+ *   const inter      = Inter({ variable: "--font-body", ... })
+ *   const geistMono  = Geist_Mono({ variable: "--font-mono", ... })
+ *
+ * Until that's wired up, safe system-font fallbacks are provided so the
+ * design system renders correctly on its own.
+ */
+
+@theme {
+  /* Font families (next/font variables with system fallbacks) */
+  --font-display: var(--font-display-loaded), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-heading: var(--font-heading-loaded), "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-loaded), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-loaded), "Geist Mono", ui-monospace, monospace;
+
+  /*
+   * Editorial type scale.
+   * Large, generous sizes per DESIGN.md ("large headings", "generous
+   * whitespace"); tight tracking on display sizes for a confident,
+   * architectural feel; loose tracking on caption/mono for editorial polish.
+   */
+
+  /* Display — Cormorant Garamond, hero/editorial statements */
+  --text-display-1: 6.5rem;
+  --text-display-1--line-height: 1.02;
+  --text-display-1--letter-spacing: -0.02em;
+
+  --text-display-2: 4.5rem;
+  --text-display-2--line-height: 1.05;
+  --text-display-2--letter-spacing: -0.015em;
+
+  /* Headings — Geist, section/sub-section titles */
+  --text-h1: 3rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.01em;
+
+  --text-h2: 2.25rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.01em;
+
+  --text-h3: 1.75rem;
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: 0em;
+
+  --text-h4: 1.375rem;
+  --text-h4--line-height: 1.25;
+  --text-h4--letter-spacing: 0em;
+
+  /* Body — Inter, running text */
+  --text-body-lg: 1.25rem;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--letter-spacing: 0em;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: 0em;
+
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-body-sm--letter-spacing: 0em;
+
+  /* Caption / mono — Geist Mono, labels and metadata */
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.04em;
+
+  /* Minimal weight set, per DESIGN.md's "minimal font weights" */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+}

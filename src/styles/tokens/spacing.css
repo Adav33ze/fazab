@@ -1,0 +1,40 @@
+/**
+ * Spacing scale
+ *
+ * Source: DESIGN.md → "Layout" (large margins, generous whitespace,
+ * editorial rhythm).
+ *
+ * Tailwind v4's default spacing scale (based on --spacing: 0.25rem) still
+ * applies for everyday utilities (p-4, gap-6, etc). These tokens extend
+ * it with editorial-scale steps for the large margins and section rhythm
+ * this brand needs, plus semantic aliases so intent stays readable in
+ * markup (`px-gutter` communicates more than `px-24`).
+ *
+ * Do not add ad-hoc spacing values in components — extend this file
+ * instead, per CLAUDE.md's "never invent spacing" rule.
+ */
+
+@theme {
+  /* Editorial-scale steps beyond Tailwind's default max (96 / 24rem) */
+  --spacing-28: 7rem; /* 112px */
+  --spacing-32: 8rem; /* 128px */
+  --spacing-36: 9rem; /* 144px */
+  --spacing-40: 10rem; /* 160px */
+
+  /*
+   * Semantic aliases for common editorial-layout roles.
+   * Values chosen to land on the extended scale above.
+   */
+
+  /* Horizontal page gutter — the "large margins" DESIGN.md calls for */
+  --spacing-gutter-mobile: 1.5rem; /* 24px */
+  --spacing-gutter-tablet: 2.5rem; /* 40px */
+  --spacing-gutter-desktop: 5rem; /* 80px */
+
+  /* Vertical rhythm between major page sections */
+  --spacing-section-mobile: 5rem; /* 80px */
+  --spacing-section-desktop: 9rem; /* 144px */
+
+  /* Vertical rhythm between content blocks within a section */
+  --spacing-block: 2.5rem; /* 40px */
+}

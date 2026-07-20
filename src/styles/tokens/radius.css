@@ -1,0 +1,17 @@
+/**
+ * Border radius tokens
+ *
+ * Source: DESIGN.md → "UI" (rounded corners only where appropriate,
+ * minimal borders). Kept deliberately small — this is an architectural,
+ * confident brand, not a soft/playful one. Sharp edges are the default;
+ * rounding is the exception, reserved for cards, buttons, and imagery.
+ */
+
+@theme {
+  --radius-none: 0px;
+  --radius-sm: 0.125rem; /* 2px — subtle, for inputs/tags */
+  --radius-md: 0.25rem; /* 4px — default for buttons */
+  --radius-lg: 0.5rem; /* 8px — cards, panels */
+  --radius-xl: 1rem; /* 16px — large imagery/media containers */
+  --radius-full: 9999px; /* pills, avatars */
+}

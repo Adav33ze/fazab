@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CLAUDE.md
 
 # FAZAB Website AI Development Guide
@@ -396,3 +397,6 @@ If a task requires many files:
 4. Continue incrementally.
 
 Never rewrite existing files unless explicitly requested.
+=======
+@AGENTS.md
+>>>>>>> 66fb2b980a6fc2658564a2c63cd346b3358a4d3b

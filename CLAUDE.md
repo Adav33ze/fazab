@@ -396,3 +396,15 @@ If a task requires many files:
 4. Continue incrementally.
 
 Never rewrite existing files unless explicitly requested.
+
+## Asset Handling
+
+Treat SVGs, images, videos and other media as static assets.
+
+Do not inline, rewrite, optimize or reproduce their contents unless explicitly requested.
+
+Reference assets by their file path whenever possible.
+
+Avoid parsing or explaining SVG markup.
+
+Modify only the component that consumes the asset.

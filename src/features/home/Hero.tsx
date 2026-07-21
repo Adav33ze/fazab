@@ -1,50 +1,56 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import home from "@/data/home.json";
 
-/**
- * Homepage hero — the page's thesis statement.
- *
- * Copy sourced from fazab.md: the eyebrow is the real company identity
- * (Abuja, Nigeria — not an invented "international" locations list), the
- * headline is FAZAB's actual brand promise, and the subhead is close to
- * verbatim to fazab.md's own positioning statement. Kept to one sentence
- * per fazab.md's "Communication Style" (concise, no long introductions).
- *
- * Visual system (type scale, spacing, colors) is unchanged — that
- * remains governed by DESIGN.md, which fazab.md explicitly defers to.
- *
- * Server Component — zero client JS for the heaviest visual moment on
- * the page.
- */
 export function Hero() {
   return (
-    <Section aria-labelledby="hero-heading">
-      <Container size="lg" className="flex min-h-[85vh] flex-col justify-between">
-        <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-          FAZAB International Limited — Abuja, Nigeria
+    <Section
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden"
+    >
+      {home.heroImage && (
+        <div className="absolute inset-0">
+          <Image
+            src={home.heroImage}
+            alt={home.heroImageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-background/65" />
+        </div>
+      )}
+
+      <Container
+        size="lg"
+        className="relative flex min-h-[85vh] flex-col justify-between"
+      >
+        <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+          {home.eyebrow}
         </p>
 
-        <div className="flex flex-col gap-block max-w-4xl">
+        <div className="flex max-w-4xl flex-col gap-block">
           <h1
             id="hero-heading"
-            className="font-display text-display-2 lg:text-display-1 font-medium text-foreground"
+            className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
           >
-            Constructing Possibilities. Redefining Excellence.
+            {home.heading}
           </h1>
 
-          <p className="font-body text-body-lg text-foreground-muted max-w-xl">
-            A multidisciplinary design and construction practice,
-            headquartered in Abuja — delivering integrated solutions from
-            concept to completion.
+          <p className="max-w-xl font-body text-body-lg text-foreground-muted">
+            {home.introduction}
           </p>
         </div>
 
-        <p
-          aria-hidden="true"
-          className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted self-end"
+        <Link
+          href="/projects"
+          className="self-end font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted transition-colors duration-200 hover:text-accent"
         >
-          ↓ Our Work
-        </p>
+          ↓ View work
+        </Link>
       </Container>
     </Section>
   );

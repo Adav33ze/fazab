@@ -12,7 +12,7 @@ export default function Contact() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
             {contact.eyebrow}
           </p>
 
@@ -36,14 +36,14 @@ export default function Contact() {
           <div className="grid grid-cols-1 gap-block lg:grid-cols-12 lg:gap-x-8">
             <h2
               id="contact-details-heading"
-              className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted lg:col-span-3"
+              className="font-mono text-caption uppercase tracking-[0.2em] text-accent lg:col-span-3"
             >
               Contact details
             </h2>
 
             <div className="flex flex-col divide-y divide-border border-t border-border lg:col-span-8 lg:col-start-5">
               <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
-                <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+                <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                   Email
                 </p>
                 <a
@@ -56,7 +56,7 @@ export default function Contact() {
 
               {contact.phone && (
                 <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
-                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Phone
                   </p>
                   <a
@@ -70,7 +70,7 @@ export default function Contact() {
 
               {contact.address && (
                 <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
-                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Office
                   </p>
                   <p className="font-body text-body text-foreground-muted">
@@ -86,7 +86,7 @@ export default function Contact() {
       <Section aria-labelledby="enquire-heading">
         <Container size="lg">
           <div className="border-t border-border pt-6">
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
               Enquire
             </p>
 

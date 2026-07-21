@@ -1,4 +1,3 @@
-// src/features/services/ServicesPage.tsx
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 
@@ -52,7 +51,7 @@ export function ServicesPage() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
             What we do
           </p>
 
@@ -90,14 +89,14 @@ export function ServicesPage() {
             {SERVICES.map((service) => (
               <li
                 key={service.number}
-                className="grid grid-cols-1 gap-6 border-b border-border py-8 lg:grid-cols-12 lg:gap-x-8 lg:py-12"
+                className="group grid grid-cols-1 gap-6 border-b border-border py-8 lg:grid-cols-12 lg:gap-x-8 lg:py-12"
               >
-                <p className="font-mono text-caption text-foreground-muted lg:col-span-1">
+                <p className="font-mono text-caption text-accent lg:col-span-1">
                   {service.number}
                 </p>
 
                 <div className="lg:col-span-5">
-                  <h3 className="font-display text-h2 font-medium text-foreground">
+                  <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-200 group-hover:text-accent">
                     {service.name}
                   </h3>
                 </div>

@@ -24,7 +24,7 @@ export function AboutPage() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
             About FAZAB
           </p>
 
@@ -49,7 +49,7 @@ export function AboutPage() {
           <div className="grid grid-cols-1 gap-block lg:grid-cols-12 lg:gap-x-8">
             <h2
               id="practice-heading"
-              className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted lg:col-span-3"
+              className="font-mono text-caption uppercase tracking-[0.2em] text-accent lg:col-span-3"
             >
               The practice
             </h2>
@@ -74,7 +74,7 @@ export function AboutPage() {
         <Container size="lg">
           <h2
             id="principles-heading"
-            className="mb-block font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted"
+            className="mb-block font-mono text-caption uppercase tracking-[0.2em] text-accent"
           >
             At a glance
           </h2>
@@ -85,7 +85,7 @@ export function AboutPage() {
                 key={principle.label}
                 className="flex min-h-40 flex-col justify-between border-b border-border py-6 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0 sm:last:pr-0"
               >
-                <dt className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+                <dt className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                   {principle.label}
                 </dt>
                 <dd className="font-display text-h2 font-medium text-foreground">
@@ -103,7 +103,7 @@ export function AboutPage() {
             <div className="border-t border-border pt-6">
               <h2
                 id="mission-heading"
-                className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted"
+                className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
               >
                 Mission
               </h2>
@@ -114,7 +114,7 @@ export function AboutPage() {
             </div>
 
             <div className="border-t border-border pt-6">
-              <h2 className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+              <h2 className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                 Vision
               </h2>
               <p className="mt-6 font-display text-h3 font-medium leading-snug text-foreground">

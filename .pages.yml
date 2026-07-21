@@ -26,3 +26,32 @@ content:
         label: Year
         type: number
         required: true
+
+  - name: contact
+    label: Contact
+    type: file
+    path: src/data/contact.json
+    format: json
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+        required: true
+      - name: heading
+        label: Heading
+        type: string
+        required: true
+      - name: introduction
+        label: Introduction
+        type: text
+        required: true
+      - name: email
+        label: Email address
+        type: string
+        required: true
+      - name: phone
+        label: Phone number
+        type: string
+      - name: address
+        label: Address
+        type: text

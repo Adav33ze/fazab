@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
+import { Navbar } from "@/features/shared/Navbar";
+import { Footer } from "@/features/shared/Footer";
 import "./globals.css";
 
 /**
@@ -43,7 +45,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FAZAB",
   description:
-    "FAZAB — an international multidisciplinary design practice specializing in architecture, interior design, construction, and visualization.",
+    "FAZAB International Limited — a multidisciplinary design and construction practice headquartered in Abuja, Nigeria, delivering architecture, construction and project management from concept to completion.",
 };
 
 export default function RootLayout({
@@ -54,7 +56,11 @@ export default function RootLayout({
       lang="en"
       className={`${cormorantGaramond.variable} ${geist.variable} ${instrumentSans.variable} ${geistMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

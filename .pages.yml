@@ -105,4 +105,18 @@ content:
       - name: heading
         label: Heading
         type: string
-        re
+        required: true
+      - name: introduction
+        label: Introduction
+        type: text
+        required: true
+      - name: email
+        label: Email address
+        type: string
+        required: true
+      - name: phone
+        label: Phone number
+        type: string
+      - name: address
+        label: Address
+        type: text

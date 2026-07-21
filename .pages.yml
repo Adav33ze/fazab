@@ -1,8 +1,16 @@
 media:
-  - name: images
-    label: Images
-    input: public/media/images
-    output: /media/images
+  - name: homeImages
+    label: Home images
+    input: public/media/images/home
+    output: /media/images/home
+    extensions: [jpg, jpeg, png, webp]
+    categories: [image]
+    rename: safe
+
+  - name: projectImages
+    label: Project images
+    input: public/media/images/projects
+    output: /media/images/projects
     extensions: [jpg, jpeg, png, webp]
     categories: [image]
     rename: safe
@@ -30,8 +38,7 @@ content:
         label: Hero image
         type: image
         options:
-          media: images
-          path: home
+          media: homeImages
       - name: heroImageAlt
         label: Hero image description
         type: string
@@ -72,8 +79,7 @@ content:
         label: Cover image
         type: image
         options:
-          media: images
-          path: projects
+          media: projectImages
       - name: imageAlt
         label: Cover image description
         type: string
@@ -81,8 +87,7 @@ content:
         label: Project gallery
         type: image
         options:
-          media: images
-          path: projects
+          media: projectImages
           multiple:
             max: 8
           unique: true
@@ -100,18 +105,4 @@ content:
       - name: heading
         label: Heading
         type: string
-        required: true
-      - name: introduction
-        label: Introduction
-        type: text
-        required: true
-      - name: email
-        label: Email address
-        type: string
-        required: true
-      - name: phone
-        label: Phone number
-        type: string
-      - name: address
-        label: Address
-        type: text
+        re

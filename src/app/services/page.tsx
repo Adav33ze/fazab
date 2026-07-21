@@ -1,5 +1,5 @@
 // src/app/services/page.tsx
-import { ServicesPage } from "@/features/services/ServicesPage";
+import { ServicesPage } from "@/services/ServicesPage";
 
 export default function Services() {
   return <ServicesPage />;

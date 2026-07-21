@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Gwarinpa Residences",
+    "location": "Abuja",
+    "discipline": "Architecture & Design",
+    "year": 2024
+  },
+  {
+    "name": "Trade Fair Complex Redevelopment",
+    "location": "Lagos",
+    "discipline": "Construction & Infrastructure",
+    "year": 2023
+  },
+  {
+    "name": "Enugu State Civic Centre",
+    "location": "Enugu",
+    "discipline": "Project Delivery",
+    "year": 2022
+  },
+  {
+    "name": "Kaduna Ring Road Upgrade",
+    "location": "Kaduna",
+    "discipline": "Construction & Infrastructure",
+    "year": 2021
+  },
+  {
+    "name": "Lakowe Hospitality Suites",
+    "location": "Lakowe, Lagos",
+    "discipline": "Architecture & Design",
+    "year": 2020
+  },
+  {
+    "name": "Regional Corporate Headquarters",
+    "location": "Abuja",
+    "discipline": "Project Delivery",
+    "year": 2019
+  }
+]

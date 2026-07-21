@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { PROJECTS } from "@/data/projects";
@@ -47,21 +49,34 @@ export function ProjectsPage() {
             )}
           </div>
 
-          {PROJECTS.length > 0 ? (
-            <ol className="border-t border-border">
-              {PROJECTS.map((project, index) => (
-                <li
-                  key={`${project.name}-${project.year}`}
-                  className="grid grid-cols-1 gap-4 border-b border-border py-8 sm:grid-cols-12 sm:items-end sm:gap-x-8 lg:py-12"
+          <ol className="border-t border-border">
+            {PROJECTS.map((project, index) => (
+              <li key={project.slug} className="border-b border-border">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-200 hover:bg-accent-muted sm:grid-cols-12 sm:items-end sm:gap-x-8 lg:py-12"
                 >
                   <p className="font-mono text-caption text-foreground-muted sm:col-span-1">
                     {String(index + 1).padStart(2, "0")}
                   </p>
 
                   <div className="sm:col-span-6">
-                    <h3 className="font-display text-h2 font-medium text-foreground">
+                    {project.image && (
+                      <div className="mb-6 overflow-hidden bg-surface">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt || project.name}
+                          width={1200}
+                          height={1500}
+                          className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    )}
+
+                    <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-200 group-hover:text-accent">
                       {project.name}
                     </h3>
+
                     <p className="mt-2 font-body text-body-sm text-foreground-muted">
                       {project.discipline}
                     </p>
@@ -74,14 +89,10 @@ export function ProjectsPage() {
                   <p className="font-mono text-caption text-foreground-muted sm:col-span-2 sm:text-right">
                     {project.year}
                   </p>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p className="border-t border-border py-8 font-body text-body text-foreground-muted">
-              Projects will be added soon.
-            </p>
-          )}
+                </Link>
+              </li>
+            ))}
+          </ol>
         </Container>
       </Section>
     </>

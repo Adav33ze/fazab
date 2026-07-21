@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants/navigation";
 import { MobileMenu } from "@/features/shared/MobileMenu";
 
@@ -31,12 +30,6 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-
-        <div className="hidden lg:block">
-          <Button asChild variant="secondary" size="sm">
-            <Link href="/contact">Enquire</Link>
-          </Button>
-        </div>
 
         <MobileMenu />
       </Container>

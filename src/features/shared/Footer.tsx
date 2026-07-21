@@ -1,27 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { NAV_LINKS } from "@/constants/navigation";
 
-/**
- * Site footer.
- *
- * Reuses NAV_LINKS from constants/navigation.ts rather than a separate
- * link list, so Navbar/MobileMenu/Footer can never drift out of sync
- * (CLAUDE.md: "avoid duplicated code").
- *
- * Contact email is a placeholder matching the one used in
- * ClosingCta.tsx — swap both together once a real address exists.
- *
- * Server Component — entirely static markup.
- */
 export function Footer() {
   return (
     <Section as="footer" background="secondary">
       <Container size="lg" className="flex flex-col gap-block">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="font-display text-h4 text-foreground">FAZAB</p>
+            <Link href="/" className="flex w-fit items-center" aria-label="FAZAB home">
+              <Image
+                src="/brand/fazab-logo.svg"
+                alt="FAZAB"
+                width={128}
+                height={32}
+                className="h-8 w-auto"
+              />
+            </Link>
             <p className="font-body text-body-sm text-foreground-muted mt-2">
               FAZAB International Limited
               <br />
@@ -45,7 +42,6 @@ export function Footer() {
             <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
               Contact
             </p>
-            {/* Placeholder — replace alongside ClosingCta.tsx's email */}
             <a
               href="mailto:info@fazabinternational.com"
               className="font-body text-body-sm text-foreground-muted transition-colors duration-200 hover:text-accent mt-2 block w-fit"

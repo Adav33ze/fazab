@@ -1,0 +1,28 @@
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: src/data/projects.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Project name
+        type: string
+        required: true
+      - name: location
+        label: Location
+        type: string
+        required: true
+      - name: discipline
+        label: Discipline
+        type: string
+        required: true
+      - name: year
+        label: Year
+        type: number
+        required: true

@@ -3,6 +3,10 @@ import { Section } from "@/components/layout/Section";
 import contact from "@/data/contact.json";
 
 export default function Contact() {
+  const whatsappNumber = contact.whatsapp.replace(/\D/g, "");
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    "Hello FAZAB, I would like to discuss a project.",
+  )}`;
   const enquiryHref = `mailto:${contact.email}?subject=Project%20enquiry`;
 
   return (
@@ -44,8 +48,24 @@ export default function Contact() {
             <div className="flex flex-col divide-y divide-border border-t border-border lg:col-span-8 lg:col-start-5">
               <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
                 <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+                  WhatsApp
+                </p>
+
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
+                >
+                  {contact.whatsapp}
+                </a>
+              </div>
+
+              <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
+                <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                   Email
                 </p>
+
                 <a
                   href={`mailto:${contact.email}`}
                   className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
@@ -59,6 +79,7 @@ export default function Contact() {
                   <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Phone
                   </p>
+
                   <a
                     href={`tel:${contact.phone.replace(/\s/g, "")}`}
                     className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
@@ -73,6 +94,7 @@ export default function Contact() {
                   <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Office
                   </p>
+
                   <p className="font-body text-body text-foreground-muted">
                     {contact.address}
                   </p>
@@ -98,12 +120,23 @@ export default function Contact() {
                 Ready to begin? Tell us what you&apos;re planning.
               </h2>
 
-              <a
-                href={enquiryHref}
-                className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-200 hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
-              >
-                Email FAZAB
-              </a>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-200 hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
+                >
+                  Chat on WhatsApp
+                </a>
+
+                <a
+                  href={enquiryHref}
+                  className="inline-flex h-13 items-center justify-center border border-accent px-8 font-heading text-body-lg font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:shadow-focus"
+                >
+                  Email FAZAB
+                </a>
+              </div>
             </div>
           </div>
         </Container>

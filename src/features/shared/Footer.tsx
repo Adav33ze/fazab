@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { NAV_LINKS } from "@/constants/navigation";
+import { ContactMenu } from "@/features/shared/ContactMenu";
 
 export function Footer() {
   return (
@@ -19,7 +20,8 @@ export function Footer() {
                 className="h-8 w-auto"
               />
             </Link>
-            <p className="font-body text-body-sm text-foreground-muted mt-2">
+
+            <p className="mt-2 font-body text-body-sm text-foreground-muted">
               FAZAB International Limited
               <br />
               Abuja, Nigeria
@@ -31,27 +33,22 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-heading text-body-sm text-foreground-muted transition-colors duration-200 hover:text-foreground"
+                className="font-heading text-body-sm text-foreground-muted transition-colors duration-200 hover:text-accent"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div>
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-              Contact
+          <div className="flex flex-col items-start gap-3">
+            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+              Start a conversation
             </p>
-            <a
-              href="mailto:info@fazabinternational.com"
-              className="font-body text-body-sm text-foreground-muted transition-colors duration-200 hover:text-accent mt-2 block w-fit"
-            >
-              info@fazabinternational.com
-            </a>
+            <ContactMenu />
           </div>
         </div>
 
-        <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted border-t border-border pt-6">
+        <p className="border-t border-accent/30 pt-6 font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
           © {new Date().getFullYear()} FAZAB International Limited — Abuja, Nigeria
         </p>
       </Container>

@@ -43,6 +43,22 @@ export function Hero() {
           <p className="max-w-xl font-body text-body-lg text-foreground-muted">
             {home.introduction}
           </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/projects"
+              className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-200 hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
+            >
+              View projects
+            </Link>
+
+            <Link
+              href="/contact"
+              className="inline-flex h-13 items-center justify-center border border-accent px-8 font-heading text-body-lg font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:shadow-focus"
+            >
+              Get in touch
+            </Link>
+          </div>
         </div>
 
         <Link

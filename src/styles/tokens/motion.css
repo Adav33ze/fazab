@@ -1,0 +1,30 @@
+/**
+ * Motion tokens
+ *
+ * Source: DESIGN.md → "Motion" (purposeful, elegant, smooth, cinematic,
+ * never distracting; no gimmicks) — same source as
+ * src/constants/motion.ts, which is the source of truth for GSAP and
+ * Framer Motion (they consume duration/easing as JS, not CSS strings).
+ *
+ * This file re-exposes those exact same values as Tailwind v4 theme
+ * variables, so CSS-based transitions (`duration-base`, `ease-standard`,
+ * etc.) and JS-based animations never drift apart. If a value changes,
+ * change it in constants/motion.ts first, then mirror it here.
+ *
+ * No bounce, no overshoot, no elastic easing — confident and calm,
+ * per the brand language in DESIGN.md.
+ */
+
+@theme {
+  /* Durations — mirrors DURATION in constants/motion.ts (seconds → ms) */
+  --duration-fast: 200ms; /* Micro-interactions: hover states, small UI feedback */
+  --duration-base: 400ms; /* Standard transitions: most UI state changes */
+  --duration-slow: 800ms; /* Deliberate, cinematic reveals: hero elements, section transitions */
+  --duration-slowest: 1200ms; /* Large-scale page/scroll choreography */
+
+  /* Easing — mirrors EASE in constants/motion.ts */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* Default for most UI transitions */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1); /* Entrances — content arriving on screen */
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0); /* Exits — content leaving the screen */
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1); /* Emphasis — deliberate, editorial reveals */
+}

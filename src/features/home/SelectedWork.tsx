@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Reveal } from "@/animations/Reveal";
 import { PROJECTS } from "@/data/projects";
 
 export function SelectedWork() {
   return (
     <Section aria-labelledby="selected-work-heading">
       <Container size="lg">
-        <div className="mb-block flex items-baseline justify-between gap-block">
+        <Reveal className="mb-block flex items-baseline justify-between gap-block">
           <h2
             id="selected-work-heading"
             className="font-heading text-h2 font-medium text-foreground"
@@ -20,16 +21,21 @@ export function SelectedWork() {
               {PROJECTS[PROJECTS.length - 1].year}–{PROJECTS[0].year}
             </p>
           )}
-        </div>
+        </Reveal>
 
         <ol className="border-t border-border">
-          {PROJECTS.map((project) => (
-            <li key={project.slug} className="border-b border-border">
+          {PROJECTS.map((project, index) => (
+            <Reveal
+              key={project.slug}
+              as="li"
+              delay={index * 0.06}
+              className="border-b border-border"
+            >
               <Link
                 href={`/projects/${project.slug}`}
-                className="group flex flex-col gap-1 py-6 transition-colors duration-200 hover:bg-accent-muted sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                className="group flex flex-col gap-1 py-6 transition-colors duration-fast ease-standard hover:bg-accent-muted sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
               >
-                <span className="font-display text-h3 text-foreground transition-colors duration-200 group-hover:text-accent">
+                <span className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
                   {project.name}
                 </span>
 
@@ -45,7 +51,7 @@ export function SelectedWork() {
                   {project.year}
                 </span>
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </Container>

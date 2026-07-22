@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Reveal } from "@/animations/Reveal";
 
 interface Service {
   readonly number: string;
@@ -51,29 +52,33 @@ export function ServicesPage() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-            What we do
-          </p>
+          <Reveal>
+            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+              What we do
+            </p>
+          </Reveal>
 
-          <div className="max-w-5xl">
+          <Reveal delay={0.1} className="max-w-5xl">
             <h1
               id="services-heading"
               className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
             >
               Integrated expertise from concept to completion.
             </h1>
-          </div>
+          </Reveal>
 
-          <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-            We bring design, construction and project delivery together to
-            create practical, enduring solutions with one trusted partner.
-          </p>
+          <Reveal delay={0.2}>
+            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
+              We bring design, construction and project delivery together to
+              create practical, enduring solutions with one trusted partner.
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
       <Section background="secondary" aria-labelledby="capabilities-heading">
         <Container size="lg">
-          <div className="mb-block grid grid-cols-1 gap-6 border-b border-border pb-6 lg:grid-cols-12 lg:items-end">
+          <Reveal className="mb-block grid grid-cols-1 gap-6 border-b border-border pb-6 lg:grid-cols-12 lg:items-end">
             <h2
               id="capabilities-heading"
               className="font-heading text-h2 font-medium text-foreground lg:col-span-8"
@@ -83,12 +88,14 @@ export function ServicesPage() {
             <p className="font-body text-body-sm text-foreground-muted lg:col-span-4">
               Four connected disciplines. One clear standard of delivery.
             </p>
-          </div>
+          </Reveal>
 
           <ol className="border-t border-border">
-            {SERVICES.map((service) => (
-              <li
+            {SERVICES.map((service, index) => (
+              <Reveal
                 key={service.number}
+                as="li"
+                delay={index * 0.08}
                 className="group grid grid-cols-1 gap-6 border-b border-border py-8 lg:grid-cols-12 lg:gap-x-8 lg:py-12"
               >
                 <p className="font-mono text-caption text-accent lg:col-span-1">
@@ -96,7 +103,7 @@ export function ServicesPage() {
                 </p>
 
                 <div className="lg:col-span-5">
-                  <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-200 group-hover:text-accent">
+                  <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
                     {service.name}
                   </h3>
                 </div>
@@ -119,7 +126,7 @@ export function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </Container>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Reveal } from "@/animations/Reveal";
 
 interface Discipline {
   readonly name: string;
@@ -46,29 +47,38 @@ const DISCIPLINES: readonly Discipline[] = [
  * bordered feature cards. Each pillar is a heading-weight name, not an
  * icon-topped box — hierarchy from type/space, per DESIGN.md → "UI".
  *
- * Server Component — hover accent below is pure CSS.
+ * Server Component — the hover accent is pure CSS; Reveal (a Client
+ * Component) handles the scroll-in animation without forcing this
+ * component itself into the client bundle.
  */
 export function Disciplines() {
   return (
     <Section background="secondary" aria-labelledby="disciplines-heading">
       <Container size="lg">
-        <h2
-          id="disciplines-heading"
-          className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted mb-block"
-        >
-          Core Capabilities
-        </h2>
+        <Reveal className="mb-block">
+          <h2
+            id="disciplines-heading"
+            className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted"
+          >
+            Core Capabilities
+          </h2>
+        </Reveal>
 
         <ul className="grid grid-cols-1 gap-block sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
-          {DISCIPLINES.map((discipline) => (
-            <li key={discipline.name} className="group border-t border-border pt-6">
-              <p className="font-heading text-h3 font-medium text-foreground transition-colors duration-200 group-hover:text-accent">
+          {DISCIPLINES.map((discipline, index) => (
+            <Reveal
+              key={discipline.name}
+              as="li"
+              delay={index * 0.08}
+              className="group border-t border-border pt-6"
+            >
+              <p className="font-heading text-h3 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
                 {discipline.name}
               </p>
               <p className="font-body text-body-sm text-foreground-muted mt-3">
                 {discipline.description}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </Container>

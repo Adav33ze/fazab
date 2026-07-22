@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Reveal } from "@/animations/Reveal";
 import contact from "@/data/contact.json";
 
 export default function Contact() {
@@ -16,37 +17,46 @@ export default function Contact() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-            {contact.eyebrow}
-          </p>
+          <Reveal>
+            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+              {contact.eyebrow}
+            </p>
+          </Reveal>
 
-          <div className="max-w-5xl">
+          <Reveal delay={0.1} className="max-w-5xl">
             <h1
               id="contact-heading"
               className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
             >
               {contact.heading}
             </h1>
-          </div>
+          </Reveal>
 
-          <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-            {contact.introduction}
-          </p>
+          <Reveal delay={0.2}>
+            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
+              {contact.introduction}
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
       <Section background="secondary" aria-labelledby="contact-details-heading">
         <Container size="lg">
           <div className="grid grid-cols-1 gap-block lg:grid-cols-12 lg:gap-x-8">
-            <h2
-              id="contact-details-heading"
-              className="font-mono text-caption uppercase tracking-[0.2em] text-accent lg:col-span-3"
-            >
-              Contact details
-            </h2>
+            <Reveal className="lg:col-span-3">
+              <h2
+                id="contact-details-heading"
+                className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
+              >
+                Contact details
+              </h2>
+            </Reveal>
 
             <div className="flex flex-col divide-y divide-border border-t border-border lg:col-span-8 lg:col-start-5">
-              <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
+              <Reveal
+                delay={0}
+                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
+              >
                 <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                   WhatsApp
                 </p>
@@ -55,42 +65,51 @@ export default function Contact() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
+                  className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
                 >
                   {contact.whatsapp}
                 </a>
-              </div>
+              </Reveal>
 
-              <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
+              <Reveal
+                delay={0.06}
+                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
+              >
                 <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                   Email
                 </p>
 
                 <a
                   href={`mailto:${contact.email}`}
-                  className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
+                  className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
                 >
                   {contact.email}
                 </a>
-              </div>
+              </Reveal>
 
               {contact.phone && (
-                <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
+                <Reveal
+                  delay={0.12}
+                  className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
+                >
                   <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Phone
                   </p>
 
                   <a
                     href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                    className="font-display text-h3 text-foreground transition-colors duration-200 hover:text-accent"
+                    className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
                   >
                     {contact.phone}
                   </a>
-                </div>
+                </Reveal>
               )}
 
               {contact.address && (
-                <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between">
+                <Reveal
+                  delay={0.18}
+                  className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
+                >
                   <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
                     Office
                   </p>
@@ -98,7 +117,7 @@ export default function Contact() {
                   <p className="font-body text-body text-foreground-muted">
                     {contact.address}
                   </p>
-                </div>
+                </Reveal>
               )}
             </div>
           </div>
@@ -108,35 +127,39 @@ export default function Contact() {
       <Section aria-labelledby="enquire-heading">
         <Container size="lg">
           <div className="border-t border-border pt-6">
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-              Enquire
-            </p>
+            <Reveal>
+              <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
+                Enquire
+              </p>
+            </Reveal>
 
             <div className="mt-8 flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <h2
-                id="enquire-heading"
-                className="max-w-3xl font-display text-h2 font-medium leading-snug text-foreground lg:text-h1"
-              >
-                Ready to begin? Tell us what you&apos;re planning.
-              </h2>
+              <Reveal delay={0.1} className="max-w-3xl">
+                <h2
+                  id="enquire-heading"
+                  className="font-display text-h2 font-medium leading-snug text-foreground lg:text-h1"
+                >
+                  Ready to begin? Tell us what you&apos;re planning.
+                </h2>
+              </Reveal>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <Reveal delay={0.2} className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-200 hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
+                  className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-fast ease-standard hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
                 >
                   Chat on WhatsApp
                 </a>
 
                 <a
                   href={enquiryHref}
-                  className="inline-flex h-13 items-center justify-center border border-accent px-8 font-heading text-body-lg font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:shadow-focus"
+                  className="inline-flex h-13 items-center justify-center border border-accent px-8 font-heading text-body-lg font-medium text-accent transition-colors duration-fast ease-standard hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:shadow-focus"
                 >
                   Email FAZAB
                 </a>
-              </div>
+              </Reveal>
             </div>
           </div>
         </Container>

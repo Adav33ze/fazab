@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import { Navbar } from "@/features/shared/Navbar";
 import { Footer } from "@/features/shared/Footer";
+import { LenisProvider } from "@/animations/LenisProvider";
 import "./globals.css";
 
 /**
@@ -57,9 +58,11 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${geist.variable} ${instrumentSans.variable} ${geistMono.variable}`}
     >
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <LenisProvider>
+          <Navbar />
+          <main className="pt-[4.5rem]">{children}</main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

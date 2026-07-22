@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Reveal } from "@/animations/Reveal";
 import { PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
@@ -12,29 +13,33 @@ export function ProjectsPage() {
           size="lg"
           className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
         >
-          <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-            Selected work
-          </p>
+          <Reveal>
+            <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
+              Selected work
+            </p>
+          </Reveal>
 
-          <div className="max-w-5xl">
+          <Reveal delay={0.1} className="max-w-5xl">
             <h1
               id="projects-heading"
               className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
             >
               Work defined by care, precision and lasting value.
             </h1>
-          </div>
+          </Reveal>
 
-          <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-            A selection of projects delivered across architecture,
-            construction and project delivery.
-          </p>
+          <Reveal delay={0.2}>
+            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
+              A selection of projects delivered across architecture,
+              construction and project delivery.
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
       <Section background="secondary" aria-labelledby="project-list-heading">
         <Container size="lg">
-          <div className="mb-block flex items-baseline justify-between gap-6">
+          <Reveal className="mb-block flex items-baseline justify-between gap-6">
             <h2
               id="project-list-heading"
               className="font-heading text-h2 font-medium text-foreground"
@@ -47,14 +52,19 @@ export function ProjectsPage() {
                 {PROJECTS[PROJECTS.length - 1].year}–{PROJECTS[0].year}
               </p>
             )}
-          </div>
+          </Reveal>
 
           <ol className="border-t border-border">
             {PROJECTS.map((project, index) => (
-              <li key={project.slug} className="border-b border-border">
+              <Reveal
+                key={project.slug}
+                as="li"
+                delay={index * 0.06}
+                className="border-b border-border"
+              >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-200 hover:bg-accent-muted sm:grid-cols-12 sm:items-end sm:gap-x-8 lg:py-12"
+                  className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-fast ease-standard hover:bg-accent-muted sm:grid-cols-12 sm:items-end sm:gap-x-8 lg:py-12"
                 >
                   <p className="font-mono text-caption text-foreground-muted sm:col-span-1">
                     {String(index + 1).padStart(2, "0")}
@@ -68,12 +78,12 @@ export function ProjectsPage() {
                           alt={project.imageAlt || project.name}
                           width={1200}
                           height={1500}
-                          className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                          className="aspect-[4/5] w-full object-cover transition-transform duration-slow ease-cinematic group-hover:scale-[1.02]"
                         />
                       </div>
                     )}
 
-                    <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-200 group-hover:text-accent">
+                    <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
                       {project.name}
                     </h3>
 
@@ -90,7 +100,7 @@ export function ProjectsPage() {
                     {project.year}
                   </p>
                 </Link>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </Container>

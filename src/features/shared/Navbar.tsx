@@ -75,7 +75,7 @@ export function Navbar() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "font-heading text-body-sm uppercase tracking-wide transition-colors duration-fast ease-standard hover:text-foreground",
+                  "font-body text-body-sm uppercase tracking-wide transition-colors duration-fast ease-standard hover:text-foreground",
                   active ? "text-accent" : "text-foreground-muted",
                 )}
               >

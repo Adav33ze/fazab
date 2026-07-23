@@ -6,27 +6,35 @@
  *
  * Font roles:
  *   --font-display  Cormorant Garamond  → hero/editorial headlines
- *   --font-heading  Geist               → section headings
- *   --font-body     Inter               → running text
+ *   --font-heading  Cormorant Garamond  → section headings, quotes
+ *   --font-body     Inter               → running text, nav, buttons, UI
  *   --font-mono     Geist Mono          → labels, numerals, technical UI
+ *
+ * One editorial serif (Cormorant Garamond) carries every statement
+ * moment — hero titles, section headings, quotes, luxury branding —
+ * while Inter carries everything interface-facing: body copy,
+ * navigation, buttons, form controls. Components that render UI text
+ * (Button, Navbar, Footer) use the `font-body` class, not
+ * `font-heading`, specifically so they land on Inter rather than
+ * picking up the serif meant for editorial headings.
  *
  * NOTE: these variables are expected to be populated by `next/font`'s
  * `variable` option in `app/layout.tsx` (out of scope for this
  * design-system-only task). The names below match that convention exactly:
  *
- *   const cormorant = Cormorant_Garamond({ variable: "--font-display", ... })
- *   const geist      = Geist({ variable: "--font-heading", ... })
- *   const inter      = Inter({ variable: "--font-body", ... })
- *   const geistMono  = Geist_Mono({ variable: "--font-mono", ... })
+ *   const cormorantGaramond = Cormorant_Garamond({ variable: "--font-heading-loaded", ... })
+ *   const inter             = Inter({ variable: "--font-body-loaded", ... })
+ *   const geistMono         = Geist_Mono({ variable: "--font-mono-loaded", ... })
  *
  * Until that's wired up, safe system-font fallbacks are provided so the
  * design system renders correctly on its own.
  */
 
 @theme {
-  /* Font families (next/font variables with system fallbacks) */
-  --font-display: var(--font-display-loaded), "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-heading: var(--font-heading-loaded), "Geist", ui-sans-serif, system-ui, sans-serif;
+  /* Font families (next/font variables with system fallbacks) —
+     display and heading both resolve to the Cormorant Garamond instance. */
+  --font-display: var(--font-heading-loaded), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-heading: var(--font-heading-loaded), "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-body: var(--font-body-loaded), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-loaded), "Geist Mono", ui-monospace, monospace;
 
@@ -46,7 +54,7 @@
   --text-display-2--line-height: 1.05;
   --text-display-2--letter-spacing: -0.015em;
 
-  /* Headings — Geist, section/sub-section titles */
+  /* Headings — Cormorant Garamond, section/sub-section titles */
   --text-h1: 3rem;
   --text-h1--line-height: 1.1;
   --text-h1--letter-spacing: -0.01em;

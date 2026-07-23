@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/animations/Reveal";
+import { RevealImage } from "@/animations/RevealImage";
 import { PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
@@ -72,15 +72,14 @@ export function ProjectsPage() {
 
                   <div className="sm:col-span-6">
                     {project.image && (
-                      <div className="mb-6 overflow-hidden bg-surface">
-                        <Image
-                          src={project.image}
-                          alt={project.imageAlt || project.name}
-                          width={1200}
-                          height={1500}
-                          className="aspect-[4/5] w-full object-cover transition-transform duration-slow ease-cinematic group-hover:scale-[1.02]"
-                        />
-                      </div>
+                      <RevealImage
+                        src={project.image}
+                        alt={project.imageAlt || project.name}
+                        width={1200}
+                        height={1500}
+                        containerClassName="mb-6"
+                        className="aspect-[4/5] w-full object-cover group-hover:scale-[1.02]"
+                      />
                     )}
 
                     <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">

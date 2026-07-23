@@ -3,21 +3,11 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ChevronDown, Mail, MessageCircle, Phone } from "lucide-react";
 import contact from "@/data/contact.json";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 type TriggerVariant = "primary" | "outline-accent";
 type TriggerSize = "md" | "lg";
-
-const TRIGGER_VARIANT_CLASSES: Record<TriggerVariant, string> = {
-  primary: "bg-accent text-accent-foreground hover:bg-accent-hover",
-  "outline-accent":
-    "border border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground",
-};
-
-const TRIGGER_SIZE_CLASSES: Record<TriggerSize, string> = {
-  md: "h-11 gap-2 px-5 text-body-sm",
-  lg: "h-13 gap-2 px-8 text-body-lg",
-};
 
 interface ContactMenuProps {
   variant?: TriggerVariant;
@@ -74,6 +64,14 @@ export function ContactMenu({
     ? "transition-transform duration-fast ease-standard rotate-180"
     : "transition-transform duration-fast ease-standard";
 
+  const triggerClassName = cn(
+    buttonVariants({
+      variant: variant === "outline-accent" ? "accentOutline" : "primary",
+      size,
+    }),
+    className,
+  );
+
   return (
     <div ref={menuRef} className="relative">
       <button
@@ -81,12 +79,7 @@ export function ContactMenu({
         aria-expanded={isOpen}
         aria-controls={menuId}
         onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          "inline-flex items-center justify-center font-heading font-medium transition-colors duration-fast ease-standard focus-visible:outline-none focus-visible:shadow-focus",
-          TRIGGER_VARIANT_CLASSES[variant],
-          TRIGGER_SIZE_CLASSES[size],
-          className,
-        )}
+        className={triggerClassName}
       >
         {label}
         <ChevronDown aria-hidden="true" size={16} className={chevronClass} />

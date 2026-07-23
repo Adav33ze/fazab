@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/animations/Reveal";
+import { RevealImage } from "@/animations/RevealImage";
 import { getProjectBySlug, PROJECTS } from "@/data/projects";
 
 export function generateStaticParams() {
@@ -108,7 +108,7 @@ export default async function ProjectPage({
         <Section background="secondary" aria-label={`${project.name} cover image`}>
           <Container size="lg">
             <Reveal distance={16}>
-              <Image
+              <RevealImage
                 src={project.image}
                 alt={project.imageAlt || project.name}
                 width={1600}
@@ -155,7 +155,7 @@ export default async function ProjectPage({
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {project.gallery.map((image, index) => (
                 <Reveal key={image} delay={index * 0.08} distance={16}>
-                  <Image
+                  <RevealImage
                     src={image}
                     alt={`${project.name} project image ${index + 1}`}
                     width={1200}

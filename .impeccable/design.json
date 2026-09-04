@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T20:00:00+01:00",
+  "title": "Design System: FAZAB International Limited",
+  "extensions": {
+    "colorMeta": {
+      "registration-blue": { "role": "primary", "displayName": "Registration Blue", "canonical": "#2454d6", "tonalRamp": ["#071238", "#0d226f", "#173fac", "#2454d6", "#5d7fe1", "#96aae9", "#ced7f4", "#f0f3fc"] },
+      "survey-orange": { "role": "secondary", "displayName": "Survey Orange", "canonical": "#d85e32", "tonalRamp": ["#37140a", "#702915", "#a94422", "#d85e32", "#e88764", "#efae96", "#f7d5c8", "#fdf2ed"] },
+      "vellum": { "role": "neutral", "displayName": "Warm Vellum", "canonical": "#e8e3d8", "tonalRamp": ["#26241f", "#4b4740", "#706b61", "#958f82", "#bab4a6", "#d9d3c5", "#e8e3d8", "#f7f4ed"] },
+      "graphite": { "role": "neutral", "displayName": "Site Graphite", "canonical": "#171815", "tonalRamp": ["#171815", "#30322d", "#4d5048", "#70736a", "#969990", "#bec0b9", "#dedfd9", "#f4f4f1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Building Scale", "purpose": "Hero and major sectional statements." },
+      "body": { "displayName": "Working Copy", "purpose": "Narrative, service, and project information." },
+      "label": { "displayName": "Technical Label", "purpose": "Coordinates, stages, and metadata." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "drawing-enter", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Hero reveal and delivery-layer alignment." },
+      { "name": "standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Small interface state changes." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Project Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The decisive enquiry action used against vellum or signal-orange fields.",
+      "html": "<button class=\"ds-btn-primary\">DISCUSS A PROJECT <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-primary{min-height:56px;padding:0 24px;border:1px solid var(--color-signal,#d85e32);border-radius:0;background:var(--color-signal,#d85e32);color:var(--color-foreground,#171815);font:600 14px/1.2 var(--font-body,system-ui,sans-serif);transition:background-color .3s,transform .3s,color .3s}.ds-btn-primary:hover{background:var(--color-foreground,#171815);color:var(--color-background,#e8e3d8);transform:translateY(-2px)}.ds-btn-primary:focus-visible{outline:2px solid var(--color-accent,#2454d6);outline-offset:4px}"
+    },
+    {
+      "name": "Outline Action",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "A secondary action that keeps the drawing field visible.",
+      "html": "<button class=\"ds-btn-outline\">REVIEW WORK <span aria-hidden=\"true\">↘</span></button>",
+      "css": ".ds-btn-outline{min-height:48px;padding:0 20px;border:1px solid var(--color-foreground,#171815);border-radius:0;background:transparent;color:var(--color-foreground,#171815);font:600 14px/1.2 var(--font-body,system-ui,sans-serif);transition:background-color .3s,color .3s}.ds-btn-outline:hover{background:var(--color-foreground,#171815);color:var(--color-background,#e8e3d8)}.ds-btn-outline:focus-visible{outline:2px solid var(--color-accent,#2454d6);outline-offset:4px}"
+    },
+    {
+      "name": "Technical Navigation",
+      "kind": "nav",
+      "description": "Compact uppercase navigation with a registration-blue active datum.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-active\" href=\"#\">SERVICES</a><a class=\"ds-nav-link\" href=\"#\">PROJECTS</a><a class=\"ds-nav-link\" href=\"#\">ABOUT</a></nav>",
+      "css": ".ds-nav{display:flex;gap:32px;align-items:center}.ds-nav-link{padding:8px 0;border-bottom:1px solid transparent;color:var(--color-foreground,#171815);font:650 11px/1.35 var(--font-body,system-ui,sans-serif);letter-spacing:.14em;text-decoration:none}.ds-nav-link:hover{border-color:currentColor}.ds-nav-link:focus-visible{outline:2px solid var(--color-accent,#2454d6);outline-offset:4px}.ds-nav-link.ds-active{border-color:var(--color-accent,#2454d6);color:var(--color-accent,#2454d6)}"
+    },
+    {
+      "name": "Delivery Layer",
+      "kind": "custom",
+      "description": "The signature aligned project-stage bar used in the scrollytelling field.",
+      "html": "<div class=\"ds-layer\"><span>02</span><strong>EVIDENCE</strong></div>",
+      "css": ".ds-layer{display:grid;grid-template-columns:22% 1fr;align-items:center;min-height:56px;border:1px solid var(--color-accent,#2454d6);background:var(--color-accent,#2454d6);color:var(--color-accent-foreground,#f8f5ec);font:650 11px/1.35 var(--font-body,system-ui,sans-serif);letter-spacing:.14em;text-transform:uppercase}.ds-layer span,.ds-layer strong{padding:0 16px}.ds-layer:focus-within{outline:2px solid var(--color-accent-foreground,#f8f5ec);outline-offset:4px}"
+    },
+    {
+      "name": "Visual Study Plate",
+      "kind": "card",
+      "description": "A square editorial image frame with a registration cross and technical caption.",
+      "html": "<figure class=\"ds-study\"><div class=\"ds-study-image\"></div><figcaption><strong>MATERIAL STUDY</strong><span>Quality held at the junction.</span></figcaption></figure>",
+      "css": ".ds-study{margin:0;color:var(--color-foreground,#171815);font-family:var(--font-body,system-ui,sans-serif)}.ds-study-image{aspect-ratio:5/4;border:1px solid var(--color-foreground,#171815);border-radius:0;background:linear-gradient(90deg,#8c877d 0 48%,#171815 48% 59%,#9d6840 59%)}.ds-study figcaption{display:flex;justify-content:space-between;gap:24px;margin-top:16px;padding-top:12px;border-top:1px solid var(--color-border,rgba(23,24,21,.22));font-size:14px}.ds-study strong{color:var(--color-accent,#2454d6);font-size:11px;letter-spacing:.14em}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Architect's Light Table",
+    "overview": "FAZAB's visual system makes integrated delivery tangible. Vellum fields, graphite type, registration marks, drawing layers, and precise hairlines create a calm, exact, materially grounded working surface.",
+    "keyCharacteristics": ["Architectural rather than corporate", "Editorial scale with technical precision", "Sparse registration blue and decisive survey orange", "Square, ruled, and layered instead of soft or decorative", "Honest separation between verified work and illustrative studies"],
+    "rules": [
+      { "name": "The Two Marks Rule", "body": "Blue explains alignment; orange asks for action. Never use both as general decoration.", "section": "colors" },
+      { "name": "The Scale With Silence Rule", "body": "Large type earns attention through space and line breaks; do not add decorative effects, gradients, or excessive weight.", "section": "typography" },
+      { "name": "The Light-Table Rule", "body": "Create depth through overlap and registration, never through floating rounded panels.", "section": "elevation" }
+    ],
+    "dos": ["Do make coordination visible through grids, rules, phase lines, and registration marks.", "Do use large condensed statements with generous breathing room.", "Do preserve WCAG AA contrast for every small label and paragraph.", "Do label illustrative imagery and keep verified project facts separate."],
+    "donts": ["Don't return to black-and-bronze generic luxury styling.", "Don't soften the system with pervasive rounding, shadows, glass effects, or pill-shaped controls.", "Don't use survey orange for low-contrast white body text.", "Don't add motion that does not explain entry, alignment, progress, or state."]
+  }
+}

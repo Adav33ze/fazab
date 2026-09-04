@@ -1,143 +1,68 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
 
 const PRINCIPLES = [
-  {
-    label: "Established",
-    value: "1998",
-  },
-  {
-    label: "Headquartered",
-    value: "Abuja, Nigeria",
-  },
-  {
-    label: "Approach",
-    value: "Integrated delivery",
-  },
+  ["Integrated", "The disciplines meet before decisions become expensive."],
+  ["Practical", "Design ambition is tested against real use, delivery and long-term value."],
+  ["Disciplined", "Clear coordination, quality control and accountability shape the work."],
+  ["Enduring", "The aim is work that remains useful, durable and considered over time."],
 ] as const;
 
 export function AboutPage() {
   return (
     <>
-      <Section aria-labelledby="about-heading">
-        <Container
-          size="lg"
-          className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
-        >
-          <Reveal>
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-              About FAZAB
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1} className="max-w-5xl">
-            <h1
-              id="about-heading"
-              className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
-            >
-              Built on experience. Designed for what lasts.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-              FAZAB is a multidisciplinary design and construction practice
-              delivering integrated solutions from concept through completion.
-            </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      <Section background="secondary" aria-labelledby="practice-heading">
-        <Container size="lg">
-          <div className="grid grid-cols-1 gap-block lg:grid-cols-12 lg:gap-x-8">
-            <Reveal className="lg:col-span-3">
-              <h2
-                id="practice-heading"
-                className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
-              >
-                The practice
-              </h2>
-            </Reveal>
-
-            <Reveal
-              delay={0.1}
-              className="flex flex-col gap-8 lg:col-span-8 lg:col-start-5"
-            >
-              <p className="font-display text-h2 font-medium leading-snug text-foreground lg:text-h1">
-                We bring architecture, construction and project delivery
-                together under one disciplined standard of care.
-              </p>
-
-              <p className="max-w-2xl font-body text-body text-foreground-muted">
-                Since 1998, FAZAB has combined technical expertise, practical
-                experience and careful execution to deliver functional,
-                durable and thoughtfully designed projects across Nigeria.
-              </p>
-            </Reveal>
+      <header className="drawing-field border-b border-foreground pt-20">
+        <Container size="lg" className="grid min-h-[78svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
+          <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">
+            Built to carry responsibility.
+          </h1>
+          <div className="border-t border-foreground pt-5 lg:col-span-3 lg:col-start-10">
+            <p className="text-lg leading-7">FAZAB International Limited</p>
+            <p className="mt-4 text-sm leading-6 text-foreground-muted">Established in 1998 · Headquartered in Abuja, Nigeria</p>
           </div>
         </Container>
-      </Section>
+      </header>
 
-      <Section aria-labelledby="principles-heading">
-        <Container size="lg">
-          <Reveal as="div" className="mb-block">
-            <h2
-              id="principles-heading"
-              className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
-            >
-              At a glance
+      <section className="border-b border-foreground bg-surface py-20 sm:py-28">
+        <Container size="lg" className="grid gap-12 lg:grid-cols-12">
+          <p className="technical-label text-accent lg:col-span-3">The practice</p>
+          <div className="lg:col-span-8 lg:col-start-5">
+            <h2 className="display-balance font-display text-5xl font-medium uppercase leading-[0.94] sm:text-6xl">
+              Design, technical intelligence and delivery belong at the same table.
             </h2>
-          </Reveal>
+            <p className="measure mt-10 text-lg leading-8 text-foreground-muted">
+              For more than two decades, FAZAB has delivered architecture, construction and project management solutions across residential, commercial, institutional, hospitality and public-sector work. The value is not simply breadth. It is the ability to coordinate that breadth around one project outcome.
+            </p>
+          </div>
+        </Container>
+      </section>
 
-          <dl className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
-            {PRINCIPLES.map((principle, index) => (
-              <Reveal
-                key={principle.label}
-                delay={index * 0.08}
-                className="flex min-h-40 flex-col justify-between border-b border-border py-6 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0 sm:last:pr-0"
-              >
-                <dt className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                  {principle.label}
-                </dt>
-                <dd className="font-display text-h2 font-medium text-foreground">
-                  {principle.value}
-                </dd>
-              </Reveal>
+      <section className="border-b border-foreground py-20 sm:py-28" aria-labelledby="principles-heading">
+        <Container size="lg">
+          <div className="grid gap-8 border-b border-foreground pb-8 lg:grid-cols-12">
+            <h2 id="principles-heading" className="font-display text-5xl font-medium uppercase leading-none lg:col-span-5">How the work is held</h2>
+            <p className="max-w-sm text-sm leading-6 text-foreground-muted lg:col-span-4 lg:col-start-9">A calm process is not passive. It is the result of decisions made clearly, documented carefully and carried through.</p>
+          </div>
+          <dl className="grid sm:grid-cols-2">
+            {PRINCIPLES.map(([term, description]) => (
+              <div key={term} className="border-b border-border py-8 sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
+                <dt className="font-display text-3xl font-medium uppercase">{term}</dt>
+                <dd className="mt-4 max-w-md text-sm leading-6 text-foreground-muted">{description}</dd>
+              </div>
             ))}
           </dl>
         </Container>
-      </Section>
+      </section>
 
-      <Section background="secondary" aria-labelledby="mission-heading">
-        <Container size="lg">
-          <div className="grid grid-cols-1 gap-block lg:grid-cols-2 lg:gap-x-16">
-            <Reveal className="border-t border-border pt-6">
-              <h2
-                id="mission-heading"
-                className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
-              >
-                Mission
-              </h2>
-              <p className="mt-6 font-display text-h3 font-medium leading-snug text-foreground">
-                To create lasting value through technical excellence,
-                integrity and disciplined execution.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.1} className="border-t border-border pt-6">
-              <h2 className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                Vision
-              </h2>
-              <p className="mt-6 font-display text-h3 font-medium leading-snug text-foreground">
-                To be one of Africa&apos;s most respected multidisciplinary
-                design and construction practices.
-              </p>
-            </Reveal>
-          </div>
+      <section className="bg-accent py-20 text-accent-foreground">
+        <Container size="lg" className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <h2 className="display-balance font-display text-5xl font-medium uppercase leading-[0.92] sm:text-6xl lg:col-span-7">The next project starts with a clear conversation.</h2>
+          <Link href="/contact" className="inline-flex min-h-14 items-center justify-between border border-accent-foreground px-5 font-semibold transition-colors hover:bg-accent-foreground hover:text-accent lg:col-span-3 lg:col-start-10">
+            Speak with FAZAB <ArrowRight aria-hidden="true" size={19} />
+          </Link>
         </Container>
-      </Section>
+      </section>
     </>
   );
 }

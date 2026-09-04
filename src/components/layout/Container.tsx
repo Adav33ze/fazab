@@ -10,7 +10,7 @@ const SIZE_CLASSES: Record<ContainerSize, string> = {
   /** Standard content width (most sections) */
   md: "max-w-5xl",
   /** Wide layouts (project grids, multi-column features) */
-  lg: "max-w-7xl",
+  lg: "max-w-[100rem]",
   /** No constraint — full-bleed imagery, edge-to-edge media */
   full: "max-w-none",
 };
@@ -48,7 +48,7 @@ export function Container<T extends ElementType = "div">({
     <Component
       className={cn(
         "mx-auto w-full",
-        "px-gutter-mobile sm:px-gutter-tablet lg:px-gutter-desktop",
+        "px-5 sm:px-8 lg:px-12 xl:px-16",
         SIZE_CLASSES[size],
         className,
       )}

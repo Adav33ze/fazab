@@ -1,57 +1,56 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
 import { NAV_LINKS } from "@/constants/navigation";
-import { ContactMenu } from "@/features/shared/ContactMenu";
+import contact from "@/data/contact.json";
 
 export function Footer() {
   return (
-    <Section as="footer" background="secondary">
-      <Container size="lg" className="flex flex-col gap-block">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-          <div>
-            <Link href="/" className="flex w-fit items-center" aria-label="FAZAB home">
-              <Image
-                src="/brand/fazab-logo.svg"
-                alt="FAZAB"
-                width={128}
-                height={32}
-                className="h-8 w-auto"
-              />
-            </Link>
-
-            <p className="mt-2 font-body text-body-sm text-foreground-muted">
-              FAZAB International Limited
-              <br />
-              Abuja, Nigeria
+    <footer className="bg-foreground py-10 text-background sm:py-14">
+      <Container size="lg">
+        <div className="grid gap-12 border-t border-background/30 pt-8 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Image
+              src="/brand/fazab-logo.svg"
+              alt="FAZAB"
+              width={144}
+              height={36}
+              className="h-8 w-auto brightness-0 invert"
+            />
+            <p className="mt-6 max-w-sm text-sm leading-6 text-background/70">
+              A multidisciplinary design and construction practice delivering integrated solutions from concept to completion.
             </p>
           </div>
 
-          <nav aria-label="Footer" className="flex flex-col gap-2">
+          <nav aria-label="Footer" className="flex flex-col items-start gap-3 lg:col-span-2">
             {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-body text-body-sm text-foreground-muted transition-colors duration-fast ease-standard hover:text-accent"
-              >
+              <Link key={link.href} href={link.href} className="text-sm underline decoration-transparent hover:decoration-current">
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex flex-col items-start gap-3">
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-              Start a conversation
-            </p>
-            <ContactMenu />
+          <div className="lg:col-span-3">
+            <p className="technical-label text-background/55">Project enquiries</p>
+            <a href={`mailto:${contact.email}`} className="mt-4 block text-lg underline decoration-background/40 hover:decoration-background">
+              {contact.email}
+            </a>
+            <a href={`tel:${contact.phone.replace(/\D/g, "")}`} className="mt-2 block text-lg underline decoration-background/40 hover:decoration-background">
+              {contact.phone}
+            </a>
+          </div>
+
+          <div className="lg:col-span-2 lg:text-right">
+            <p className="technical-label text-background/55">Office</p>
+            <p className="mt-4 text-sm">Abuja, Nigeria</p>
           </div>
         </div>
 
-        <p className="border-t border-accent/30 pt-6 font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-          © {new Date().getFullYear()} FAZAB International Limited — Abuja, Nigeria
-        </p>
+        <div className="mt-16 flex flex-col gap-3 border-t border-background/20 pt-5 text-xs text-background/55 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} FAZAB International Limited</p>
+          <p>Constructing possibilities. Redefining excellence.</p>
+        </div>
       </Container>
-    </Section>
+    </footer>
   );
 }

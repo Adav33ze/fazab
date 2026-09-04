@@ -1,87 +1,38 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
 
-interface Discipline {
-  readonly name: string;
-  readonly description: string;
-}
+const CAPABILITIES = [
+  ["Architecture & Design", "Thoughtful spaces, coordinated drawings, and enduring value."],
+  ["Construction & Infrastructure", "Quality workmanship, safe execution, and durable outcomes."],
+  ["Project Delivery", "Clear planning, coordination, quality assurance, and cost control."],
+  ["Surveying & Technical Services", "Accurate site intelligence and specialist technical support."],
+] as const;
 
-/**
- * FAZAB's four real service pillars, per fazab.md → "Core Capabilities".
- * Names and descriptions are used close to verbatim — fazab.md's
- * "Service Communication" rule explicitly asks for broad capability
- * framing (outcomes) rather than an exhaustive task list, and these
- * descriptions already do that job, so there's no reason to rephrase.
- *
- * Kept out of a data file (unlike projects.ts) since this list is fixed
- * by the practice's actual scope, not editorial content that changes.
- */
-const DISCIPLINES: readonly Discipline[] = [
-  {
-    name: "Architecture & Design",
-    description:
-      "Creating thoughtful architectural and spatial solutions that balance functionality, aesthetics and long-term value.",
-  },
-  {
-    name: "Construction & Infrastructure",
-    description:
-      "Delivering residential, commercial and institutional projects with technical excellence, quality workmanship and safe execution.",
-  },
-  {
-    name: "Project Delivery",
-    description:
-      "Managing projects from planning through completion with strong coordination, quality assurance and cost control.",
-  },
-  {
-    name: "Surveying & Technical Services",
-    description:
-      "Providing specialist technical expertise that supports informed decision-making throughout the project lifecycle.",
-  },
-];
-
-/**
- * Core Capabilities — the services section.
- *
- * A four-column typographic list with hairline top-rules, not four
- * bordered feature cards. Each pillar is a heading-weight name, not an
- * icon-topped box — hierarchy from type/space, per DESIGN.md → "UI".
- *
- * Server Component — the hover accent is pure CSS; Reveal (a Client
- * Component) handles the scroll-in animation without forcing this
- * component itself into the client bundle.
- */
 export function Disciplines() {
   return (
-    <Section background="secondary" aria-labelledby="disciplines-heading">
+    <section className="border-b border-foreground bg-surface py-20 sm:py-28" aria-labelledby="capabilities-heading">
       <Container size="lg">
-        <Reveal className="mb-block">
-          <h2
-            id="disciplines-heading"
-            className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted"
-          >
-            Core Capabilities
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-8">
+          <h2 id="capabilities-heading" className="display-balance font-display text-5xl font-medium uppercase leading-[0.92] sm:text-6xl lg:col-span-4">
+            Expertise that moves together.
           </h2>
-        </Reveal>
-
-        <ul className="grid grid-cols-1 gap-block sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
-          {DISCIPLINES.map((discipline, index) => (
-            <Reveal
-              key={discipline.name}
-              as="li"
-              delay={index * 0.08}
-              className="group border-t border-border pt-6"
-            >
-              <p className="font-heading text-h3 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
-                {discipline.name}
-              </p>
-              <p className="font-body text-body-sm text-foreground-muted mt-3">
-                {discipline.description}
-              </p>
-            </Reveal>
-          ))}
-        </ul>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <ul className="border-t border-foreground">
+              {CAPABILITIES.map(([name, description], index) => (
+                <li key={name} className="grid gap-4 border-b border-border py-6 sm:grid-cols-[3rem_1fr_1fr] sm:gap-6">
+                  <span className="technical-label text-accent">{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className="font-display text-2xl font-medium uppercase leading-none">{name}</h3>
+                  <p className="text-sm leading-6 text-foreground-muted">{description}</p>
+                </li>
+              ))}
+            </ul>
+            <Link href="/services" className="mt-8 inline-flex items-center gap-10 border-b border-foreground pb-3 font-semibold hover:text-accent">
+              Explore every capability <ArrowRight aria-hidden="true" size={18} />
+            </Link>
+          </div>
+        </div>
       </Container>
-    </Section>
+    </section>
   );
 }

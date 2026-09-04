@@ -1,83 +1,97 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
-import { Button } from "@/components/ui/button";
 
-/**
- * Mobile navigation — hamburger toggle + full-screen link panel.
- *
- * The only interactive piece of the nav, isolated into its own Client
- * Component so Navbar.tsx itself can stay as lean as possible.
- * Open/close animation is a plain CSS opacity transition (CLAUDE.md's
- * motion hierarchy: CSS first), driven by the shared motion tokens so
- * it matches the rest of the site's easing/duration language; it also
- * automatically respects the `prefers-reduced-motion` rule set globally
- * in globals.css.
- *
- * Links use `font-body` (Inter), not `font-display` — this panel is
- * still navigation, so it follows the same "Inter for UI" rule as the
- * desktop nav, rather than borrowing the editorial serif reserved for
- * headings/hero/quotes.
- */
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsOpen(false);
+    const main = document.querySelector("main");
+    const footer = document.querySelector("footer");
+    const trigger = triggerRef.current;
+    const obscured = [main, footer].filter((node): node is HTMLElement => node instanceof HTMLElement);
+    const focusable = () => [
+      trigger,
+      ...Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href]") ?? []),
+    ].filter((node): node is HTMLElement => node instanceof HTMLElement);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const items = focusable();
+      const first = items[0];
+      const last = items.at(-1);
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
     };
-
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
-
+    obscured.forEach((node) => node.setAttribute("inert", ""));
+    menuRef.current?.querySelector<HTMLElement>("a[href]")?.focus();
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
+      obscured.forEach((node) => node.removeAttribute("inert"));
+      trigger?.focus();
     };
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden">
+    <div className="justify-self-end lg:hidden">
       <button
+        ref={triggerRef}
         type="button"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-label={isOpen ? "Close menu" : "Open menu"}
         onClick={() => setIsOpen((open) => !open)}
-        className="flex size-11 items-center justify-center text-foreground transition-colors duration-fast ease-standard hover:text-accent focus-visible:outline-none focus-visible:shadow-focus"
+        className="flex size-12 items-center justify-center border border-foreground bg-background"
       >
-        {isOpen ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
+        {isOpen ? <X aria-hidden="true" size={20} /> : <Menu aria-hidden="true" size={20} />}
       </button>
 
       <div
+        ref={menuRef}
         id="mobile-menu"
-        className={`fixed inset-x-0 top-[4.5rem] bottom-0 z-40 flex flex-col justify-between bg-background px-gutter-mobile py-block transition-opacity duration-base ease-standard ${
-          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        aria-hidden={!isOpen}
+        className={`mobile-menu-panel fixed inset-0 top-20 z-40 drawing-field bg-background px-5 py-8 transition-[opacity,visibility] duration-300 ${
+          isOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
-        <nav aria-label="Mobile" className="flex flex-col gap-6">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="font-body text-h2 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav aria-label="Mobile" className="flex h-full flex-col justify-between">
+          <div className="flex flex-col border-t border-foreground">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                tabIndex={isOpen ? 0 : -1}
+                className="flex items-center justify-between border-b border-border py-5 font-display text-4xl uppercase"
+              >
+                {link.label} <ArrowUpRight aria-hidden="true" size={24} />
+              </Link>
+            ))}
+          </div>
+          <p className="technical-label max-w-56 text-foreground-muted">
+            Integrated design and construction · Abuja, Nigeria · Since 1998
+          </p>
         </nav>
-
-        <Button asChild size="lg" className="w-full">
-          <Link href="/contact" onClick={() => setIsOpen(false)}>
-            Enquire
-          </Link>
-        </Button>
       </div>
     </div>
   );

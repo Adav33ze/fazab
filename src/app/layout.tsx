@@ -1,63 +1,40 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Geist_Mono, Inter } from "next/font/google";
-import { Navbar } from "@/features/shared/Navbar";
+import { Barlow_Condensed, Hanken_Grotesk } from "next/font/google";
 import { Footer } from "@/features/shared/Footer";
-import { LenisProvider } from "@/animations/LenisProvider";
+import { Navbar } from "@/features/shared/Navbar";
 import "./globals.css";
 
-/**
- * Font loading.
- *
- * `variable` names below must match exactly what typography.css expects
- * (see that file's comments) — this is the one place those tokens get
- * populated with real font files instead of their system-font fallbacks.
- *
- * Cormorant Garamond carries display/heading roles (hero titles,
- * section headings, quotes, luxury branding); Inter carries body text,
- * navigation, buttons and UI elements — the classic pairing of one
- * editorial serif for statement moments and one clean grotesk for the
- * interface. Geist Mono remains for captions/labels/numerals.
- */
-
-const cormorantGaramond = Cormorant_Garamond({
+const display = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-heading-loaded",
+  variable: "--font-display-loaded",
   display: "swap",
 });
 
-const inter = Inter({
+const body = Hanken_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body-loaded",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono-loaded",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "FAZAB",
+  metadataBase: new URL("https://fazabinternational.com"),
+  title: {
+    default: "FAZAB International Limited",
+    template: "%s · FAZAB",
+  },
   description:
-    "FAZAB International Limited — a multidisciplinary design and construction practice headquartered in Abuja, Nigeria, delivering architecture, construction and project management from concept to completion.",
+    "FAZAB is a multidisciplinary design and construction practice in Abuja, Nigeria, integrating architecture, construction, technical services and project delivery.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${cormorantGaramond.variable} ${inter.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
-        <LenisProvider>
-          <Navbar />
-          <main className="pt-[4.5rem]">{children}</main>
-          <Footer />
-        </LenisProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

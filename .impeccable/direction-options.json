@@ -1,0 +1,133 @@
+{
+  "title": "Choose FAZAB’s new visual world",
+  "question": "The lead direction turns concept-to-completion into one continuous drawing. Keep it, take the field-register alternative, or steer the roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Light Table",
+      "kicker": "THE ROLL",
+      "lineage": "architectural tracing film, drawing registers, and coordinated overlays",
+      "thesis": "Four disciplines arrive as separate layers, then align into one accountable line from concept to completion.",
+      "palette": ["#E8E3D8", "#171815", "#2454D6", "#D85E32"],
+      "materials": ["vellum", "graphite", "registration marks", "translucent drawing film"],
+      "viewport": "A pale drawing field carries an off-centre title at building scale, a narrow photographic site strip, and four translucent phase layers crossing one fixed datum line; the enquiry action sits beside the completed coordinate.",
+      "risk": "The technical language must stay legible and human or it can feel like a drawing tool rather than a trusted practice.",
+      "raised": [
+        {"from": "Tokyo Signboard", "raise": "The active delivery phase is unmistakably illuminated while inactive layers recede."},
+        {"from": "Riley Moiré", "raise": "Line frequency does real work, tightening only where coordination and action matter."},
+        {"from": "Seven Segment", "raise": "Empty stages remain deliberately visible, making progress and absence equally clear."},
+        {"from": "Neon Circuit", "raise": "One unbroken path carries the visitor from first idea to final handover."}
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "The Site Register",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "survey field books, site diaries, and numbered inspection records",
+      "thesis": "FAZAB becomes the calm record of decisions, coordinates, milestones, and accountable delivery.",
+      "palette": ["#F0EBDD", "#20211E", "#B94B2B", "#7B806F"],
+      "materials": ["field-book paper", "survey pencil", "date stamps", "canvas binding"],
+      "viewport": "A large numbered register entry opens the site: location and date in the margin, one decisive construction image, a precise statement, and the next inspection point as the primary action.",
+      "risk": "Field-note aesthetics are familiar in architecture portfolios and need exceptional composition to avoid becoming predictable editorial minimalism.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-moire",
+      "label": "Measured Frequency",
+      "verdict": "competitive",
+      "lineage": "Bridget Riley’s monochrome wave rooms translated into coordinated building systems",
+      "thesis": "Four line fields converge as the visitor moves, turning integration into an optical fact rather than a claim.",
+      "palette": ["#F7F6F1", "#0A0A09", "#3154C6"],
+      "materials": ["matte gallery wall", "ruled ink", "optical line field"],
+      "viewport": "A sparse title sits clear of a full-height line field whose four frequencies settle into one band beside the enquiry action.",
+      "case": "Strong audience identification and unforgettable motion; the integration story is less immediately literal than the light table.",
+      "risk": "Optical vibration can become tiring and must collapse gracefully for reduced motion and small screens.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-riley-moire-gallery-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/design-canon-riley-moire-gallery.webp",
+      "comp": ".impeccable/mocks/decision/challenger-moire.webp"
+    },
+    {
+      "id": "challenger-signboard",
+      "label": "Vertical Programme",
+      "verdict": "declined",
+      "lineage": "stacked Tokyo signboard alleys translated into a floor-by-floor delivery index",
+      "thesis": "Each discipline occupies a lit floor in one vertical project stack.",
+      "palette": ["#121212", "#F4F1E8", "#E34A2F", "#345EDB"],
+      "materials": ["backlit panels", "wet asphalt", "vertical index"],
+      "viewport": "A building-height service index glows beside a restrained project statement.",
+      "case": "The navigation model is clear, but the nightlife reference does not identify FAZAB’s audience.",
+      "kept": "Active and inactive stages now read at a glance in the lead direction.",
+      "risk": "Its urban-night character conflicts with FAZAB’s calm professional authority.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-signboard-canyon-midnight-hero.webp"
+    },
+    {
+      "id": "challenger-segment",
+      "label": "Delivery Instrument",
+      "verdict": "declined",
+      "lineage": "seven-segment instruments and fixed-cell status displays",
+      "thesis": "The project lifecycle is a fixed instrument whose state changes without moving the underlying structure.",
+      "palette": ["#11120F", "#D66A35", "#353A31"],
+      "materials": ["matte instrument panel", "lit segments", "ghost cells"],
+      "viewport": "The year, four disciplines, and live phase occupy a rigid measurement panel.",
+      "case": "Progress is legible, but the electronic idiom weakens audience identification.",
+      "kept": "Inactive states are designed with the same care as active content.",
+      "risk": "It can imply infrastructure monitoring rather than design and construction expertise.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock-hero.webp"
+    },
+    {
+      "id": "challenger-bbs",
+      "label": "Tender Terminal",
+      "verdict": "declined",
+      "lineage": "ANSI bulletin boards translated into a keyboard-first tender index",
+      "thesis": "Every capability and project becomes a numbered, instantly reachable record.",
+      "palette": ["#090B0B", "#E8E8D8", "#1FB7A6", "#D55D3B"],
+      "materials": ["character grid", "box rules", "phosphor text"],
+      "viewport": "An 80-column practice index exposes services and projects as numbered exits.",
+      "case": "The information structure is robust, but the nostalgia adds friction to a trust decision.",
+      "kept": "Every important destination remains reachable by clear text and keyboard.",
+      "risk": "The terminal voice is too informal for high-stakes procurement.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard-hero.webp"
+    },
+    {
+      "id": "challenger-neon",
+      "label": "One Continuous Run",
+      "verdict": "declined",
+      "lineage": "a hand-bent neon circuit translated into one accountable delivery path",
+      "thesis": "A single unbroken line passes through design, technical work, construction, and handover.",
+      "palette": ["#121313", "#EDF0EA", "#2857D8", "#CA5634"],
+      "materials": ["drawn path", "electrode joints", "dark fabrication table"],
+      "viewport": "The brand promise follows a single traced path through four named junctions.",
+      "case": "The mechanism is clear, but literal glow would pull the brand toward entertainment.",
+      "kept": "The lead direction now owns one unbroken path from concept to completion.",
+      "risk": "Neon is too expressive for the required quiet authority.",
+      "hero": "https://impeccable.style/worlds/cards/magnetism-electricity-plasma-hand-bent-neon-circuit-hero.webp"
+    },
+    {
+      "id": "challenger-skin",
+      "label": "Adaptive Surface",
+      "verdict": "declined",
+      "lineage": "chromatophore skin translated into responsive project-state layers",
+      "thesis": "The same system changes density and emphasis to fit each stage and screen.",
+      "palette": ["#E8E2D2", "#5E3028", "#168D8A", "#20211E"],
+      "materials": ["living textile", "pigment fields", "responsive pattern"],
+      "viewport": "A pale field develops four coordinated pigment bands as the project story advances.",
+      "case": "Adaptation is powerful, but the biological metaphor obscures the practice’s technical credibility.",
+      "kept": "The lead system changes density without losing its identity on smaller screens.",
+      "risk": "The organic motion is culturally distant from FAZAB’s operating world.",
+      "hero": "https://impeccable.style/worlds/cards/reefs-bioluminescent-nocturnal-chromatophore-skin-language-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": true},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A dark luxury architecture portfolio with full-bleed photography, bronze accents, and serif headlines.",
+    "palette": ["#0B0B0B", "#FFFFFF", "#B08D57"],
+    "materials": ["cinematic photography", "black field", "metallic accent"],
+    "viewport": "A conventional full-bleed project image carries a large promise, restrained navigation, and two CTAs.",
+    "risk": "Immediately legible, but visually interchangeable with many architecture and property websites."
+  },
+  "steer": true
+}

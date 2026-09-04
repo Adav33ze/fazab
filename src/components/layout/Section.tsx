@@ -55,7 +55,7 @@ export function Section<T extends ElementType = "section">({
   return (
     <Component
       className={cn(
-        "py-section-mobile lg:py-section-desktop",
+        "py-20 sm:py-24 lg:py-32",
         BACKGROUND_CLASSES[background],
         className,
       )}

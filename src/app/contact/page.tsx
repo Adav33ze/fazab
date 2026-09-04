@@ -1,169 +1,49 @@
+import type { Metadata } from "next";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
 import contact from "@/data/contact.json";
 
+export const metadata: Metadata = { title: "Contact", description: "Start a project conversation with FAZAB International Limited in Abuja, Nigeria." };
+
 export default function Contact() {
-  const whatsappNumber = contact.whatsapp.replace(/\D/g, "");
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    "Hello FAZAB, I would like to discuss a project.",
-  )}`;
-  const enquiryHref = `mailto:${contact.email}?subject=Project%20enquiry`;
+  const phone = contact.phone.replace(/\D/g, "");
+  const whatsappHref = `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hello FAZAB, I would like to discuss a project.")}`;
+  const METHODS = [
+    { label: "Email", value: contact.email, href: `mailto:${contact.email}?subject=Project%20enquiry`, icon: Mail },
+    { label: "WhatsApp", value: contact.whatsapp, href: whatsappHref, icon: MessageCircle },
+    { label: "Phone", value: contact.phone, href: `tel:${phone}`, icon: Phone },
+  ] as const;
 
   return (
     <>
-      <Section aria-labelledby="contact-heading">
-        <Container
-          size="lg"
-          className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
-        >
-          <Reveal>
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-              {contact.eyebrow}
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1} className="max-w-5xl">
-            <h1
-              id="contact-heading"
-              className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
-            >
-              {contact.heading}
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-              {contact.introduction}
-            </p>
-          </Reveal>
+      <header className="drawing-field border-b border-foreground pt-20">
+        <Container size="lg" className="grid min-h-[72svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
+          <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">Begin with the project in front of you.</h1>
+          <p className="max-w-sm border-t border-foreground pt-5 text-lg leading-7 lg:col-span-3 lg:col-start-10">Share the brief, site, requirements or delivery challenge. We will connect you with the right FAZAB team.</p>
         </Container>
-      </Section>
+      </header>
 
-      <Section background="secondary" aria-labelledby="contact-details-heading">
-        <Container size="lg">
-          <div className="grid grid-cols-1 gap-block lg:grid-cols-12 lg:gap-x-8">
-            <Reveal className="lg:col-span-3">
-              <h2
-                id="contact-details-heading"
-                className="font-mono text-caption uppercase tracking-[0.2em] text-accent"
-              >
-                Contact details
-              </h2>
-            </Reveal>
-
-            <div className="flex flex-col divide-y divide-border border-t border-border lg:col-span-8 lg:col-start-5">
-              <Reveal
-                delay={0}
-                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
-              >
-                <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                  WhatsApp
-                </p>
-
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
-                >
-                  {contact.whatsapp}
-                </a>
-              </Reveal>
-
-              <Reveal
-                delay={0.06}
-                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
-              >
-                <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                  Email
-                </p>
-
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
-                >
-                  {contact.email}
-                </a>
-              </Reveal>
-
-              {contact.phone && (
-                <Reveal
-                  delay={0.12}
-                  className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
-                >
-                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                    Phone
-                  </p>
-
-                  <a
-                    href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                    className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard hover:text-accent"
-                  >
-                    {contact.phone}
-                  </a>
-                </Reveal>
-              )}
-
-              {contact.address && (
-                <Reveal
-                  delay={0.18}
-                  className="flex flex-col gap-3 py-6 sm:flex-row sm:items-baseline sm:justify-between"
-                >
-                  <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                    Office
-                  </p>
-
-                  <p className="font-body text-body text-foreground-muted">
-                    {contact.address}
-                  </p>
-                </Reveal>
-              )}
+      <section className="border-b border-foreground bg-surface py-20 sm:py-28" aria-labelledby="contact-methods-heading">
+        <Container size="lg" className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-3">
+            <h2 id="contact-methods-heading" className="font-display text-4xl font-medium uppercase leading-none">Direct lines</h2>
+            <p className="mt-5 text-sm leading-6 text-foreground-muted">Choose the channel that suits the stage of your enquiry.</p>
+          </div>
+          <div className="lg:col-span-8 lg:col-start-5">
+            {METHODS.map(({ label, value, href, icon: Icon }) => (
+              <a key={label} href={href} target={label === "WhatsApp" ? "_blank" : undefined} rel={label === "WhatsApp" ? "noreferrer" : undefined} className="group grid gap-4 border-t border-border py-6 first:border-foreground sm:grid-cols-[3rem_1fr_auto] sm:items-center">
+                <Icon aria-hidden="true" size={20} />
+                <div><span className="technical-label text-foreground-muted">{label}</span><span className="mt-2 block font-display text-2xl font-medium uppercase sm:text-3xl">{value}</span></div>
+                <ArrowUpRight aria-hidden="true" className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" size={20} />
+              </a>
+            ))}
+            <div className="grid gap-4 border-y border-border py-6 sm:grid-cols-[3rem_1fr] sm:items-center">
+              <MapPin aria-hidden="true" size={20} />
+              <div><span className="technical-label text-foreground-muted">Office</span><span className="mt-2 block font-display text-2xl font-medium uppercase sm:text-3xl">{contact.address}</span></div>
             </div>
           </div>
         </Container>
-      </Section>
-
-      <Section aria-labelledby="enquire-heading">
-        <Container size="lg">
-          <div className="border-t border-border pt-6">
-            <Reveal>
-              <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-                Enquire
-              </p>
-            </Reveal>
-
-            <div className="mt-8 flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <Reveal delay={0.1} className="max-w-3xl">
-                <h2
-                  id="enquire-heading"
-                  className="font-display text-h2 font-medium leading-snug text-foreground lg:text-h1"
-                >
-                  Ready to begin? Tell us what you&apos;re planning.
-                </h2>
-              </Reveal>
-
-              <Reveal delay={0.2} className="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex h-13 items-center justify-center bg-accent px-8 font-heading text-body-lg font-medium text-accent-foreground transition-colors duration-fast ease-standard hover:bg-accent-hover focus-visible:outline-none focus-visible:shadow-focus"
-                >
-                  Chat on WhatsApp
-                </a>
-
-                <a
-                  href={enquiryHref}
-                  className="inline-flex h-13 items-center justify-center border border-accent px-8 font-heading text-body-lg font-medium text-accent transition-colors duration-fast ease-standard hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:shadow-focus"
-                >
-                  Email FAZAB
-                </a>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      </section>
     </>
   );
 }

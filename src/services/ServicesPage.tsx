@@ -1,136 +1,52 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
 
-interface Service {
-  readonly number: string;
-  readonly name: string;
-  readonly description: string;
-  readonly scope: readonly string[];
-}
-
-const SERVICES: readonly Service[] = [
-  {
-    number: "01",
-    name: "Architecture & Design",
-    description:
-      "Thoughtful architectural and spatial solutions that balance function, beauty and long-term value.",
-    scope: ["Architecture", "Interior Design", "Planning & Documentation"],
-  },
-  {
-    number: "02",
-    name: "Construction & Infrastructure",
-    description:
-      "Residential, commercial and institutional projects delivered with technical excellence, quality workmanship and safe execution.",
-    scope: ["Building Construction", "Civil Works", "Infrastructure"],
-  },
-  {
-    number: "03",
-    name: "Project Delivery",
-    description:
-      "Disciplined delivery from planning through completion, with clear coordination, quality assurance and cost control.",
-    scope: [
-      "Project Planning",
-      "Construction Management",
-      "Project Supervision",
-    ],
-  },
-  {
-    number: "04",
-    name: "Surveying & Technical Services",
-    description:
-      "Specialist technical expertise that supports informed decisions throughout the project lifecycle.",
-    scope: ["Surveying", "Topographical Investigations", "Technical Advisory"],
-  },
-];
+const SERVICES = [
+  { name: "Architecture & Design", phase: "Define", copy: "Thoughtful architectural and spatial solutions that balance function, aesthetics and long-term value.", scope: "Architecture · Interior design · Planning · Documentation" },
+  { name: "Surveying & Technical Services", phase: "Verify", copy: "Specialist technical expertise that supports informed decisions throughout the project lifecycle.", scope: "Surveying · Topographical investigation · Engineering support · Advisory" },
+  { name: "Construction & Infrastructure", phase: "Build", copy: "Residential, commercial and institutional projects delivered with technical excellence, quality workmanship and safe execution.", scope: "Building construction · Civil works · Infrastructure · Renovation" },
+  { name: "Project Delivery", phase: "Coordinate", copy: "Planning through completion with strong coordination, quality assurance and cost control.", scope: "Planning · Construction management · Procurement · Supervision" },
+] as const;
 
 export function ServicesPage() {
   return (
     <>
-      <Section aria-labelledby="services-heading">
-        <Container
-          size="lg"
-          className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
-        >
-          <Reveal>
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-accent">
-              What we do
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1} className="max-w-5xl">
-            <h1
-              id="services-heading"
-              className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
-            >
-              Integrated expertise from concept to completion.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-              We bring design, construction and project delivery together to
-              create practical, enduring solutions with one trusted partner.
-            </p>
-          </Reveal>
+      <header className="drawing-field border-b border-foreground pt-20">
+        <Container size="lg" className="grid min-h-[78svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
+          <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">One project. One coordinated practice.</h1>
+          <p className="max-w-sm border-t border-foreground pt-5 text-lg leading-7 lg:col-span-3 lg:col-start-10">Integrated expertise from concept through completion.</p>
         </Container>
-      </Section>
+      </header>
 
-      <Section background="secondary" aria-labelledby="capabilities-heading">
+      <section className="border-b border-foreground bg-surface py-20 sm:py-28" aria-labelledby="services-list-heading">
         <Container size="lg">
-          <Reveal className="mb-block grid grid-cols-1 gap-6 border-b border-border pb-6 lg:grid-cols-12 lg:items-end">
-            <h2
-              id="capabilities-heading"
-              className="font-heading text-h2 font-medium text-foreground lg:col-span-8"
-            >
-              Core capabilities
-            </h2>
-            <p className="font-body text-body-sm text-foreground-muted lg:col-span-4">
-              Four connected disciplines. One clear standard of delivery.
-            </p>
-          </Reveal>
-
-          <ol className="border-t border-border">
+          <div className="grid gap-8 border-b border-foreground pb-7 lg:grid-cols-12">
+            <h2 id="services-list-heading" className="font-display text-5xl font-medium uppercase leading-none lg:col-span-5">The delivery register</h2>
+            <p className="max-w-md text-sm leading-6 text-foreground-muted lg:col-span-4 lg:col-start-9">Each discipline has a distinct role. Their value compounds when decisions, documents and delivery remain connected.</p>
+          </div>
+          <ol>
             {SERVICES.map((service, index) => (
-              <Reveal
-                key={service.number}
-                as="li"
-                delay={index * 0.08}
-                className="group grid grid-cols-1 gap-6 border-b border-border py-8 lg:grid-cols-12 lg:gap-x-8 lg:py-12"
-              >
-                <p className="font-mono text-caption text-accent lg:col-span-1">
-                  {service.number}
-                </p>
-
-                <div className="lg:col-span-5">
-                  <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
-                    {service.name}
-                  </h3>
+              <li key={service.name} className="grid gap-5 border-b border-border py-9 lg:grid-cols-12 lg:gap-8">
+                <div className="flex gap-6 lg:col-span-2">
+                  <span className="technical-label text-accent">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="technical-label">{service.phase}</span>
                 </div>
-
-                <div className="flex flex-col gap-6 lg:col-span-6">
-                  <p className="font-body text-body text-foreground-muted">
-                    {service.description}
-                  </p>
-                  <ul
-                    className="flex flex-wrap gap-x-4 gap-y-2"
-                    aria-label={`${service.name} scope`}
-                  >
-                    {service.scope.map((item) => (
-                      <li
-                        key={item}
-                        className="font-mono text-caption uppercase tracking-[0.12em] text-foreground-muted"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
+                <h3 className="font-display text-4xl font-medium uppercase leading-[0.95] lg:col-span-4">{service.name}</h3>
+                <p className="max-w-md text-base leading-7 text-foreground-muted lg:col-span-3">{service.copy}</p>
+                <p className="text-sm leading-6 text-foreground-muted lg:col-span-3">{service.scope}</p>
+              </li>
             ))}
           </ol>
         </Container>
-      </Section>
+      </section>
+
+      <section className="bg-foreground py-20 text-background">
+        <Container size="lg" className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <h2 className="display-balance font-display text-5xl font-medium uppercase leading-[0.92] sm:text-6xl lg:col-span-7">Bring the challenge. We will assemble the right disciplines.</h2>
+          <Link href="/contact" className="inline-flex min-h-14 items-center justify-between border border-background px-5 font-semibold transition-colors hover:bg-background hover:text-foreground lg:col-span-3 lg:col-start-10">Discuss your requirements <ArrowRight aria-hidden="true" size={19} /></Link>
+        </Container>
+      </section>
     </>
   );
 }

@@ -1,60 +1,42 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
 import { PROJECTS } from "@/data/projects";
 
 export function SelectedWork() {
   return (
-    <Section aria-labelledby="selected-work-heading">
+    <section className="border-b border-foreground bg-background py-20 sm:py-28 lg:py-36" aria-labelledby="selected-work-heading">
       <Container size="lg">
-        <Reveal className="mb-block flex items-baseline justify-between gap-block">
-          <h2
-            id="selected-work-heading"
-            className="font-heading text-h2 font-medium text-foreground"
-          >
-            Selected Work
-          </h2>
+        <div className="grid gap-8 border-b border-foreground pb-8 lg:grid-cols-12">
+          <h2 id="selected-work-heading" className="font-display text-6xl font-medium uppercase leading-none lg:col-span-6">Selected work</h2>
+          <p className="max-w-md text-sm leading-6 text-foreground-muted lg:col-span-4 lg:col-start-9">
+            Project records are being prepared for publication. The current register preserves verified names, disciplines, locations and dates without inventing scope.
+          </p>
+        </div>
 
-          {PROJECTS.length > 0 && (
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-              {PROJECTS[PROJECTS.length - 1].year}–{PROJECTS[0].year}
-            </p>
-          )}
-        </Reveal>
-
-        <ol className="border-t border-border">
-          {PROJECTS.map((project, index) => (
-            <Reveal
-              key={project.slug}
-              as="li"
-              delay={index * 0.06}
-              className="border-b border-border"
-            >
+        <ol>
+          {PROJECTS.slice(0, 4).map((project, index) => (
+            <li key={project.slug}>
               <Link
                 href={`/projects/${project.slug}`}
-                className="group flex flex-col gap-1 py-6 transition-colors duration-fast ease-standard hover:bg-accent-muted sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                className="group grid gap-3 border-b border-border py-7 transition-colors hover:border-foreground sm:grid-cols-12 sm:items-end sm:gap-6"
               >
-                <span className="font-display text-h3 text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
-                  {project.name}
-                </span>
-
-                <span className="font-body text-body-sm text-foreground-muted sm:flex-1 sm:px-6">
-                  {project.discipline}
-                </span>
-
-                <span className="font-body text-body-sm text-foreground-muted">
-                  {project.location}
-                </span>
-
-                <span className="font-mono text-caption text-foreground-muted sm:w-12 sm:text-right">
-                  {project.year}
+                <span className="technical-label text-accent sm:col-span-1">{String(index + 1).padStart(2, "0")}</span>
+                <span className="font-display text-3xl font-medium uppercase leading-none transition-transform duration-300 group-hover:translate-x-2 sm:col-span-5 sm:text-4xl">{project.name}</span>
+                <span className="text-sm text-foreground-muted sm:col-span-3">{project.discipline}</span>
+                <span className="flex items-center justify-between text-sm sm:col-span-3">
+                  {project.location} · {project.year}
+                  <ArrowUpRight aria-hidden="true" size={18} />
                 </span>
               </Link>
-            </Reveal>
+            </li>
           ))}
         </ol>
+
+        <Link href="/projects" className="mt-10 inline-flex min-h-12 items-center gap-10 border border-foreground px-5 font-semibold transition-colors hover:bg-foreground hover:text-background">
+          Open the project register <ArrowUpRight aria-hidden="true" size={18} />
+        </Link>
       </Container>
-    </Section>
+    </section>
   );
 }

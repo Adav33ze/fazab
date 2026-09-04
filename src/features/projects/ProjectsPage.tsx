@@ -1,109 +1,41 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/animations/Reveal";
-import { RevealImage } from "@/animations/RevealImage";
 import { PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
   return (
     <>
-      <Section aria-labelledby="projects-heading">
-        <Container
-          size="lg"
-          className="flex min-h-[70vh] flex-col justify-between gap-section-mobile lg:gap-section-desktop"
-        >
-          <Reveal>
-            <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-              Selected work
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1} className="max-w-5xl">
-            <h1
-              id="projects-heading"
-              className="font-display text-display-2 font-medium text-foreground lg:text-display-1"
-            >
-              Work defined by care, precision and lasting value.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="max-w-xl font-body text-body-lg text-foreground-muted">
-              A selection of projects delivered across architecture,
-              construction and project delivery.
-            </p>
-          </Reveal>
+      <header className="drawing-field border-b border-foreground pt-20">
+        <Container size="lg" className="grid min-h-[72svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
+          <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">A register of work shaped with care.</h1>
+          <p className="max-w-sm border-t border-foreground pt-5 text-sm leading-6 text-foreground-muted lg:col-span-3 lg:col-start-10">Verified project imagery and detailed case studies are being curated. Published records show only the information currently on file.</p>
         </Container>
-      </Section>
+      </header>
 
-      <Section background="secondary" aria-labelledby="project-list-heading">
+      <section className="border-b border-foreground bg-surface py-20 sm:py-28" aria-labelledby="project-register-heading">
         <Container size="lg">
-          <Reveal className="mb-block flex items-baseline justify-between gap-6">
-            <h2
-              id="project-list-heading"
-              className="font-heading text-h2 font-medium text-foreground"
-            >
-              Projects
-            </h2>
-
-            {PROJECTS.length > 0 && (
-              <p className="font-mono text-caption uppercase tracking-[0.2em] text-foreground-muted">
-                {PROJECTS[PROJECTS.length - 1].year}–{PROJECTS[0].year}
-              </p>
-            )}
-          </Reveal>
-
-          <ol className="border-t border-border">
+          <div className="grid grid-cols-12 gap-4 border-b border-foreground pb-4">
+            <h2 id="project-register-heading" className="technical-label col-span-5 sm:col-span-6">Project</h2>
+            <span className="technical-label col-span-4 hidden sm:block">Discipline</span>
+            <span className="technical-label col-span-7 text-right sm:col-span-2">Place / Year</span>
+          </div>
+          <ol>
             {PROJECTS.map((project, index) => (
-              <Reveal
-                key={project.slug}
-                as="li"
-                delay={index * 0.06}
-                className="border-b border-border"
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-fast ease-standard hover:bg-accent-muted sm:grid-cols-12 sm:items-end sm:gap-x-8 lg:py-12"
-                >
-                  <p className="font-mono text-caption text-foreground-muted sm:col-span-1">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <div className="sm:col-span-6">
-                    {project.image && (
-                      <RevealImage
-                        src={project.image}
-                        alt={project.imageAlt || project.name}
-                        width={1200}
-                        height={1500}
-                        containerClassName="mb-6"
-                        className="aspect-[4/5] w-full object-cover group-hover:scale-[1.02]"
-                      />
-                    )}
-
-                    <h3 className="font-display text-h2 font-medium text-foreground transition-colors duration-fast ease-standard group-hover:text-accent">
-                      {project.name}
-                    </h3>
-
-                    <p className="mt-2 font-body text-body-sm text-foreground-muted">
-                      {project.discipline}
-                    </p>
-                  </div>
-
-                  <p className="font-body text-body-sm text-foreground-muted sm:col-span-3">
-                    {project.location}
-                  </p>
-
-                  <p className="font-mono text-caption text-foreground-muted sm:col-span-2 sm:text-right">
-                    {project.year}
-                  </p>
+              <li key={project.slug}>
+                <Link href={`/projects/${project.slug}`} className="group grid grid-cols-12 items-end gap-4 border-b border-border py-7 hover:border-foreground">
+                  <span className="col-span-5 flex items-start gap-4 sm:col-span-6">
+                    <span className="technical-label mt-1 text-accent">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="font-display text-2xl font-medium uppercase leading-none transition-transform duration-300 group-hover:translate-x-2 sm:text-4xl">{project.name}</span>
+                  </span>
+                  <span className="col-span-4 hidden text-sm text-foreground-muted sm:block">{project.discipline}</span>
+                  <span className="col-span-7 flex items-center justify-end gap-5 text-right text-sm sm:col-span-2">{project.location} · {project.year}<ArrowUpRight aria-hidden="true" size={17} /></span>
                 </Link>
-              </Reveal>
+              </li>
             ))}
           </ol>
         </Container>
-      </Section>
+      </section>
     </>
   );
 }

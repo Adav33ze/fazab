@@ -18,7 +18,7 @@ export function Footer() {
               className="h-8 w-auto brightness-0 invert"
             />
             <p className="mt-6 max-w-sm text-sm leading-6 text-background/70">
-              A multidisciplinary design and construction practice delivering integrated solutions from concept to completion.
+              A multidisciplinary practice delivering integrated solutions from concept to construction and ongoing property care.
             </p>
           </div>
 

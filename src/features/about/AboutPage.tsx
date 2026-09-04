@@ -12,7 +12,7 @@ const PRINCIPLES = [
 export function AboutPage() {
   return (
     <>
-      <header className="drawing-field border-b border-foreground pt-20">
+      <header className="drawing-field drawing-field-live border-b border-foreground pt-20">
         <Container size="lg" className="grid min-h-[78svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
           <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">
             Built to carry responsibility.
@@ -29,10 +29,10 @@ export function AboutPage() {
           <p className="technical-label text-accent lg:col-span-3">The practice</p>
           <div className="lg:col-span-8 lg:col-start-5">
             <h2 className="display-balance font-display text-5xl font-medium uppercase leading-[0.94] sm:text-6xl">
-              Design, technical intelligence and delivery belong at the same table.
+              Design, engineering and delivery belong at the same table.
             </h2>
             <p className="measure mt-10 text-lg leading-8 text-foreground-muted">
-              For more than two decades, FAZAB has delivered architecture, construction and project management solutions across residential, commercial, institutional, hospitality and public-sector work. The value is not simply breadth. It is the ability to coordinate that breadth around one project outcome.
+              For more than two decades, FAZAB has delivered architecture, construction, project management, property management and facility management solutions across residential, commercial, institutional, hospitality and public-sector work. Its built-environment professionals also provide complete technical project support through surveying, engineering and site intelligence. The value is the ability to coordinate that breadth from project definition through ongoing operation.
             </p>
           </div>
         </Container>
@@ -46,8 +46,8 @@ export function AboutPage() {
           </div>
           <dl className="grid sm:grid-cols-2">
             {PRINCIPLES.map(([term, description]) => (
-              <div key={term} className="border-b border-border py-8 sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
-                <dt className="font-display text-3xl font-medium uppercase">{term}</dt>
+              <div key={term} className="group border-b border-border py-8 sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
+                <dt className="font-display text-3xl font-medium uppercase transition-[color,transform] duration-300 group-hover:translate-x-1 group-hover:text-accent">{term}</dt>
                 <dd className="mt-4 max-w-md text-sm leading-6 text-foreground-muted">{description}</dd>
               </div>
             ))}

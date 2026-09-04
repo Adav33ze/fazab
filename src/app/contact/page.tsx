@@ -16,7 +16,7 @@ export default function Contact() {
 
   return (
     <>
-      <header className="drawing-field border-b border-foreground pt-20">
+      <header className="drawing-field drawing-field-live border-b border-foreground pt-20">
         <Container size="lg" className="grid min-h-[72svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
           <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">Begin with the project in front of you.</h1>
           <p className="max-w-sm border-t border-foreground pt-5 text-lg leading-7 lg:col-span-3 lg:col-start-10">Share the brief, site, requirements or delivery challenge. We will connect you with the right FAZAB team.</p>

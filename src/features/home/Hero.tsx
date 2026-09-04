@@ -3,18 +3,18 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 
-const PHASES = ["Architecture", "Technical", "Construction", "Handover"] as const;
+const PHASES = ["Architecture", "Engineering", "Construction", "Handover", "Post-handover"] as const;
 
 export function Hero() {
   return (
-    <section className="drawing-field relative min-h-[100svh] overflow-hidden border-b border-foreground pt-20">
+    <section className="drawing-field drawing-field-live relative min-h-[100svh] overflow-hidden border-b border-foreground pt-20">
       <Container size="lg" className="relative grid min-h-[calc(100svh-5rem)] grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-8 lg:py-10">
         <div className="hero-enter relative z-20 flex flex-col justify-center lg:col-span-8 lg:pr-8">
           <p className="max-w-md text-sm leading-6 text-foreground-muted">
-            FAZAB International Limited brings design, technical expertise, construction and delivery under one disciplined standard of care.
+            FAZAB International Limited brings design, engineering, construction, delivery and the ongoing care of completed properties under one standard of responsibility.
           </p>
           <h1 className="display-balance mt-8 font-display text-[clamp(4.1rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em]">
-            From first line<br />to final handover.
+            From first line<br />to beyond handover.
           </h1>
           <div className="relative mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <span aria-hidden="true" className="absolute right-full top-7 h-px w-[100vw] bg-accent" />
@@ -50,7 +50,7 @@ export function Hero() {
 
         <div className="relative z-10 border-t border-foreground pt-5 lg:col-span-8">
           <div className="absolute -top-px left-0 h-px w-1/4 bg-accent" />
-          <div className="grid grid-cols-2 gap-y-5 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-y-5 sm:grid-cols-5">
             {PHASES.map((phase, index) => (
               <div key={phase} className="flex items-center gap-3">
                 <span className={index === 0 ? "size-2 bg-accent" : "size-2 border border-foreground"} />

@@ -92,11 +92,11 @@ Includes project planning, construction management, procurement coordination and
 
 ---
 
-## Surveying & Technical Services
+## Surveying, Engineering & Site Intelligence
 
-Providing specialist technical expertise that supports informed decision-making throughout the project lifecycle.
+Providing complete technical project support through experienced built-environment professionals throughout the project lifecycle.
 
-Includes surveying, topographical investigations, engineering support and technical advisory services.
+Includes engineering support, surveying, site and topographical investigations, technical coordination and specialist advisory services.
 
 ---
 

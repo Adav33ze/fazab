@@ -11,14 +11,14 @@ Mode: Persuade. The audience is evaluating a high-stakes design or construction 
 
 ## Direction contract
 
-THESIS: Four disciplines align into one continuous delivery line; refuse the interchangeable dark-luxury portfolio.
+THESIS: Five disciplines align into one continuous property lifecycle; responsibility continues beyond handover.
 
 OWN-WORLD: Vellum fields, graphite type, registration blue, survey-orange action, hairline coordinates, and translucent drawing layers.
 
-STORY: See integrated delivery, test capability through named work and services, then begin an enquiry.
+STORY: See five disciplines align, enter the living post-handover blueprint, test capability through named work and services, then begin an enquiry.
 
-FIRST VIEWPORT: Off-centre building-scale title, narrow site photograph, four crossing phase layers, and a fixed datum ending at the enquiry action.
+FIRST VIEWPORT: Off-centre building-scale title, narrow site photograph, five crossing lifecycle layers, and a fixed datum ending at the enquiry action.
 
-FORM: Architectural light table, grounded candidate 7, seed cf7ab274; signature motion aligns layers along one progress datum.
+FORM: Architectural light table, grounded candidate 7, seed cf7ab274; signature motion aligns project layers, then turns the final line into a living operational blueprint tracked by a site-wide lifecycle rail.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

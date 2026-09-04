@@ -6,7 +6,7 @@ import { PROJECTS } from "@/data/projects";
 export function ProjectsPage() {
   return (
     <>
-      <header className="drawing-field border-b border-foreground pt-20">
+      <header className="drawing-field drawing-field-live border-b border-foreground pt-20">
         <Container size="lg" className="grid min-h-[72svh] gap-12 py-12 lg:grid-cols-12 lg:items-end lg:py-16">
           <h1 className="display-balance font-display text-[clamp(4.4rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em] lg:col-span-8">A register of work shaped with care.</h1>
           <p className="max-w-sm border-t border-foreground pt-5 text-sm leading-6 text-foreground-muted lg:col-span-3 lg:col-start-10">Verified project imagery and detailed case studies are being curated. Published records show only the information currently on file.</p>

@@ -8,7 +8,7 @@ web
 
 ## Users
 
-FAZAB serves clients planning consequential building and infrastructure work in Nigeria: property developers, government agencies, corporate organisations, educational institutions, hospitality developers, investment groups, and private homeowners. They are evaluating whether one experienced partner can coordinate design, technical work, construction, and delivery with clarity.
+FAZAB serves clients planning consequential building and infrastructure work in Nigeria: property developers, government agencies, corporate organisations, educational institutions, hospitality developers, investment groups, and private homeowners. They are evaluating whether one experienced partner can coordinate design, engineering and surveying, construction, delivery, and ongoing property care with clarity.
 
 ## Product Purpose
 
@@ -16,7 +16,7 @@ The website establishes confidence in FAZAB International Limited and turns that
 
 ## Positioning
 
-FAZAB is a multidisciplinary design and construction practice that integrates architecture, technical services, construction, and project delivery from concept to completion.
+FAZAB is a multidisciplinary practice that integrates architecture, engineering, surveying, construction, project delivery, property management, and facility management from concept through ongoing operation.
 
 ## Operating Context
 
@@ -24,7 +24,9 @@ Visitors are often comparing firms for residential, commercial, corporate, hospi
 
 ## Capabilities and Constraints
 
-- The four service pillars are Architecture & Design, Construction & Infrastructure, Project Delivery, and Surveying & Technical Services.
+- The five service pillars are Architecture & Design, Construction & Infrastructure, Project Delivery, Surveying, Engineering & Site Intelligence, and Property & Facility Management.
+- Experienced built-environment professionals provide complete technical project support, including engineering support, surveying, site investigation, coordination, and specialist advisory.
+- Post-handover services include property management, real-estate management, facility management, maintenance coordination, and ongoing asset care.
 - The site uses Next.js App Router, React, TypeScript, and Tailwind CSS and is intended for Vercel deployment.
 - Keep the experience performant, responsive, keyboard-accessible, and WCAG AA-minded, with reduced-motion support.
 - Preserve real contact routes for email, phone, and WhatsApp.
@@ -50,7 +52,7 @@ Visitors are often comparing firms for residential, commercial, corporate, hospi
 ## Product Principles
 
 - Show work and delivery evidence before marketing language.
-- Make integration visible: one practice, four connected disciplines, one line of accountability.
+- Make integration visible: one practice, five connected disciplines, one line of accountability across the full property lifecycle.
 - Communicate quiet confidence through precision and restraint.
 - Prefer curated, outcome-led information over completeness.
 - Never fabricate proof to fill a content gap.

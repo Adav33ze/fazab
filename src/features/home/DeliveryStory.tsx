@@ -12,10 +12,10 @@ const STAGES = [
     detail: "Architecture · Interior design · Planning · Documentation",
   },
   {
-    name: "Surveying & Technical Services",
-    short: "Evidence",
-    copy: "Site intelligence and specialist advice turn assumptions into informed decisions before they become cost.",
-    detail: "Surveying · Topographical investigation · Technical advisory",
+    name: "Engineering & Surveying",
+    short: "Project support",
+    copy: "Built-environment professionals provide coordinated engineering, surveying and specialist support from site investigation through delivery.",
+    detail: "Engineering support · Surveying · Site investigation · Technical coordination · Specialist advisory",
   },
   {
     name: "Construction & Infrastructure",
@@ -29,10 +29,22 @@ const STAGES = [
     copy: "Planning, procurement, supervision and quality control keep the work accountable through completion.",
     detail: "Planning · Construction management · Procurement · Supervision",
   },
+  {
+    name: "Property & Facility Management",
+    short: "Post-handover",
+    copy: "After construction, we help owners operate, maintain and manage properties so performance and value continue beyond handover.",
+    detail: "Property management · Real-estate management · Facility management · Maintenance coordination",
+  },
 ] as const;
 
-const OFFSETS = ["translate-x-12", "translate-x-8", "translate-x-4", "translate-x-0"] as const;
-const PROGRESS_WIDTHS = ["w-1/4", "w-1/2", "w-3/4", "w-full"] as const;
+const OFFSETS = [
+  "translate-x-4 sm:translate-x-12",
+  "translate-x-3 sm:translate-x-8",
+  "translate-x-2 sm:translate-x-6",
+  "translate-x-1 sm:translate-x-4",
+  "translate-x-0",
+] as const;
+const PROGRESS_WIDTHS = ["w-[20%]", "w-[40%]", "w-[60%]", "w-[80%]", "w-full"] as const;
 
 export function DeliveryStory() {
   const [activeStage, setActiveStage] = useState(0);
@@ -57,7 +69,7 @@ export function DeliveryStory() {
         <div className="lg:col-span-6">
           <div className="top-20 flex min-h-[calc(100svh-5rem)] flex-col justify-between py-12 lg:sticky lg:py-16">
             <h2 id="delivery-heading" className="display-balance max-w-xl font-display text-[clamp(3.4rem,6vw,5.7rem)] font-medium uppercase leading-[0.9] tracking-[-0.02em]">
-              Four layers.<br />One delivery line.
+              Five layers.<br />One delivery line.
             </h2>
 
             <div className="relative mt-14 border-y border-background/25 py-8" aria-hidden="true">
@@ -68,7 +80,9 @@ export function DeliveryStory() {
                   className={cn(
                     "delivery-layer relative mb-3 flex h-14 items-center border transition-[transform,background-color,border-color,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] last:mb-0",
                     index <= activeStage
-                      ? "translate-x-0 border-accent bg-accent text-accent-foreground opacity-100"
+                      ? index === STAGES.length - 1 && activeStage === STAGES.length - 1
+                        ? "translate-x-0 border-signal bg-signal text-foreground opacity-100"
+                        : "translate-x-0 border-accent bg-accent text-accent-foreground opacity-100"
                       : cn(OFFSETS[index], "border-background/25 bg-background/[0.03] opacity-50"),
                   )}
                 >

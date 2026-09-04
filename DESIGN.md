@@ -63,7 +63,7 @@ components:
 
 **Creative North Star: "The Architect's Light Table"**
 
-FAZAB's visual system makes integrated delivery tangible. Vellum fields, graphite type, registration marks, drawing layers, and precise hairlines suggest a working surface where architecture, technical evidence, construction, and handover are aligned before work moves forward.
+FAZAB's visual system makes integrated delivery tangible. Vellum fields, graphite type, registration marks, drawing layers, and precise hairlines suggest a working surface where architecture, technical evidence, construction, handover, and ongoing property care are aligned before work moves forward.
 
 The experience is calm, exact, and materially grounded. Building-scale condensed type supplies confidence; generous space and disciplined crops keep that scale from becoming loud. The system rejects interchangeable dark-luxury styling and generic construction marketing in favor of a world specific to coordinated practice.
 
@@ -74,6 +74,7 @@ The experience is calm, exact, and materially grounded. Building-scale condensed
 - Sparse registration blue and decisive survey orange
 - Square, ruled, and layered instead of soft or decorative
 - Honest separation between verified work and illustrative studies
+- Lifecycle motion that continues through ongoing property operations
 
 ## Colors
 
@@ -153,7 +154,13 @@ Desktop navigation uses compact technical labels and a bordered project CTA. The
 
 ### Delivery Layers
 
-The signature scrollytelling component aligns four phase bars into one datum. Registration blue identifies completed/current alignment, survey orange records overall progress, and the adjacent copy explains what changes at each project stage. Reduced-motion users receive the settled states without animated translation.
+The signature scrollytelling component aligns five lifecycle bars into one datum, extending from concept through post-handover property and facility management. Registration blue identifies completed/current alignment, survey orange records overall progress, and the adjacent copy explains what changes at each stage. Reduced-motion users receive the settled states without animated translation.
+
+### Living Blueprint
+
+The site-wide signature system turns the project lifecycle into an active operational drawing. Route headers carry a restrained scroll-responsive drafting field, while a fixed lifecycle rail identifies the current section and overall reading progress. The homepage post-handover field uses real SVG plan geometry, an orange operational core, and named property-care nodes to show that responsibility continues after construction.
+
+Browser-native view timelines progressively draw the plan and activate its nodes as the section enters. Unsupported and reduced-motion environments receive the complete, settled blueprint with no loss of content or navigation.
 
 ### Visual Studies
 

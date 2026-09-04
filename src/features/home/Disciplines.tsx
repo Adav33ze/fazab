@@ -6,7 +6,8 @@ const CAPABILITIES = [
   ["Architecture & Design", "Thoughtful spaces, coordinated drawings, and enduring value."],
   ["Construction & Infrastructure", "Quality workmanship, safe execution, and durable outcomes."],
   ["Project Delivery", "Clear planning, coordination, quality assurance, and cost control."],
-  ["Surveying & Technical Services", "Accurate site intelligence and specialist technical support."],
+  ["Engineering & Surveying", "Complete technical project support, site intelligence, and specialist coordination."],
+  ["Property & Facility Management", "Ongoing management, maintenance coordination, and care after handover."],
 ] as const;
 
 export function Disciplines() {

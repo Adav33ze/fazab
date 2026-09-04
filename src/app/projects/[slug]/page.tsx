@@ -24,7 +24,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <header className="drawing-field border-b border-foreground pt-20">
+      <header className="drawing-field drawing-field-live border-b border-foreground pt-20">
         <Container size="lg" className="py-10 sm:py-14">
           <Link href="/projects" className="inline-flex items-center gap-3 text-sm font-semibold underline decoration-foreground/30 hover:decoration-foreground"><ArrowLeft aria-hidden="true" size={17} /> Project register</Link>
           <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:items-end">

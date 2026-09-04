@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-03T20:00:00+01:00",
+  "generatedAt": "2026-09-04T12:00:00+01:00",
   "title": "Design System: FAZAB International Limited",
   "extensions": {
     "colorMeta": {
@@ -17,7 +17,8 @@
     "shadows": [],
     "motion": [
       { "name": "drawing-enter", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Hero reveal and delivery-layer alignment." },
-      { "name": "standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Small interface state changes." }
+      { "name": "standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Small interface state changes." },
+      { "name": "living-blueprint", "value": "scroll-driven view timeline", "purpose": "Draws operational plan lines and activates lifecycle nodes as the field enters; the static fallback remains complete." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -62,12 +63,19 @@
       "description": "A square editorial image frame with a registration cross and technical caption.",
       "html": "<figure class=\"ds-study\"><div class=\"ds-study-image\"></div><figcaption><strong>MATERIAL STUDY</strong><span>Quality held at the junction.</span></figcaption></figure>",
       "css": ".ds-study{margin:0;color:var(--color-foreground,#171815);font-family:var(--font-body,system-ui,sans-serif)}.ds-study-image{aspect-ratio:5/4;border:1px solid var(--color-foreground,#171815);border-radius:0;background:linear-gradient(90deg,#8c877d 0 48%,#171815 48% 59%,#9d6840 59%)}.ds-study figcaption{display:flex;justify-content:space-between;gap:24px;margin-top:16px;padding-top:12px;border-top:1px solid var(--color-border,rgba(23,24,21,.22));font-size:14px}.ds-study strong{color:var(--color-accent,#2454d6);font-size:11px;letter-spacing:.14em}"
+    },
+    {
+      "name": "Living Blueprint",
+      "kind": "custom",
+      "description": "A site-wide lifecycle language culminating in an operational plan that makes post-handover responsibility visible.",
+      "html": "<section class=\"ds-blueprint\"><header><span>POST-HANDOVER PLAN</span><span>ASSET IN OPERATION</span></header><div class=\"ds-plan\"><i class=\"ds-node ds-property\">PROPERTY</i><i class=\"ds-node ds-facilities\">FACILITIES</i><strong>BEYOND HANDOVER<br><b>IN OPERATION</b></strong></div><footer>OCCUPY · OPERATE · MAINTAIN</footer></section>",
+      "css": ".ds-blueprint{padding:24px;border:1px solid rgba(248,245,236,.7);border-radius:0;background-color:var(--color-accent,#2454d6);background-image:linear-gradient(rgba(248,245,236,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(248,245,236,.13) 1px,transparent 1px);background-size:48px 48px;color:var(--color-accent-foreground,#f8f5ec);font:650 11px/1.35 var(--font-body,system-ui,sans-serif);letter-spacing:.12em}.ds-blueprint header,.ds-blueprint footer{display:flex;justify-content:space-between;padding:0 0 16px}.ds-plan{position:relative;min-height:260px;border:1px solid rgba(248,245,236,.68)}.ds-plan:before,.ds-plan:after{content:'';position:absolute;inset:22% 12%;border:1px solid rgba(248,245,236,.68)}.ds-plan:after{inset:44% 24%;border-color:rgba(248,245,236,.42)}.ds-plan strong{position:absolute;z-index:1;left:32%;top:32%;padding:24px;background:var(--color-signal,#d85e32);color:var(--color-foreground,#171815);font-weight:650}.ds-plan b{display:block;margin-top:38px;font:500 28px/.9 var(--font-display,'Arial Narrow',sans-serif);letter-spacing:-.02em}.ds-node{position:absolute;z-index:2;font-style:normal}.ds-property{left:6%;top:22%}.ds-facilities{right:6%;top:56%}.ds-blueprint footer{padding:16px 0 0}"
     }
   ],
   "narrative": {
     "northStar": "The Architect's Light Table",
-    "overview": "FAZAB's visual system makes integrated delivery tangible. Vellum fields, graphite type, registration marks, drawing layers, and precise hairlines create a calm, exact, materially grounded working surface.",
-    "keyCharacteristics": ["Architectural rather than corporate", "Editorial scale with technical precision", "Sparse registration blue and decisive survey orange", "Square, ruled, and layered instead of soft or decorative", "Honest separation between verified work and illustrative studies"],
+    "overview": "FAZAB's visual system makes integrated delivery tangible. Vellum fields, graphite type, registration marks, drawing layers, and precise hairlines create a calm, exact, materially grounded working surface that remains active beyond handover.",
+    "keyCharacteristics": ["Architectural rather than corporate", "Editorial scale with technical precision", "Sparse registration blue and decisive survey orange", "Square, ruled, and layered instead of soft or decorative", "Honest separation between verified work and illustrative studies", "Lifecycle motion that continues through ongoing property operations"],
     "rules": [
       { "name": "The Two Marks Rule", "body": "Blue explains alignment; orange asks for action. Never use both as general decoration.", "section": "colors" },
       { "name": "The Scale With Silence Rule", "body": "Large type earns attention through space and line breaks; do not add decorative effects, gradients, or excessive weight.", "section": "typography" },

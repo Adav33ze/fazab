@@ -1,14 +1,11 @@
 [
   {
-    "name": "Gwarinpa Residences",
-    "slug": "gwarinpa-residences",
-    "location": "Abuja",
-    "discipline": "Architecture & Design",
-    "year": 2024,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "name": "School of Applied Sciences, Nassarawa",
+    "slug": "school-of-applied-sciences",
+    "location": "Federal Polytechnic, Nassarawa",
+    "discipline": "Construction ",
+    "year": 2015,
+    "description": "Project description to be added."
   },
   {
     "name": "Trade Fair Complex Redevelopment",
@@ -16,10 +13,7 @@
     "location": "Lagos",
     "discipline": "Construction & Infrastructure",
     "year": 2023,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "description": "Project description to be added."
   },
   {
     "name": "Enugu State Civic Centre",
@@ -27,10 +21,7 @@
     "location": "Enugu",
     "discipline": "Project Delivery",
     "year": 2022,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "description": "Project description to be added."
   },
   {
     "name": "Kaduna Ring Road Upgrade",
@@ -38,10 +29,7 @@
     "location": "Kaduna",
     "discipline": "Construction & Infrastructure",
     "year": 2021,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "description": "Project description to be added."
   },
   {
     "name": "Lakowe Hospitality Suites",
@@ -49,10 +37,7 @@
     "location": "Lakowe, Lagos",
     "discipline": "Architecture & Design",
     "year": 2020,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "description": "Project description to be added."
   },
   {
     "name": "Regional Corporate Headquarters",
@@ -60,9 +45,6 @@
     "location": "Abuja",
     "discipline": "Project Delivery",
     "year": 2019,
-    "description": "Project description to be added.",
-    "image": "",
-    "imageAlt": "",
-    "gallery": []
+    "description": "Project description to be added."
   }
 ]

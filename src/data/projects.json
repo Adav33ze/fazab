@@ -7,7 +7,17 @@
     "year": 2015,
     "description": "Project description to be added.",
     "image": "/media/images/projects/nassarawa1.jpg",
-    "imageAlt": "Completed School of Applied Sciences Building"
+    "imageAlt": "Completed School of Applied Sciences Building",
+    "gallery": [
+      "/media/images/projects/fpn02.jpg",
+      "/media/images/projects/fpn10.jpg",
+      "/media/images/projects/fpn07.jpg",
+      "/media/images/projects/nassfoundation.jpg",
+      "/media/images/projects/fpn12.jpg",
+      "/media/images/projects/fpn15.jpg",
+      "/media/images/projects/fpn14.jpg",
+      "/media/images/projects/fpn16.jpg"
+    ]
   },
   {
     "name": "Trade Fair Complex Redevelopment",

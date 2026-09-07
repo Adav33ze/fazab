@@ -18,45 +18,5 @@
       "/media/images/projects/fpn14.jpg",
       "/media/images/projects/fpn16.jpg"
     ]
-  },
-  {
-    "name": "Trade Fair Complex Redevelopment",
-    "slug": "trade-fair-complex-redevelopment",
-    "location": "Lagos",
-    "discipline": "Construction & Infrastructure",
-    "year": 2023,
-    "description": "Project description to be added."
-  },
-  {
-    "name": "Enugu State Civic Centre",
-    "slug": "enugu-state-civic-centre",
-    "location": "Enugu",
-    "discipline": "Project Delivery",
-    "year": 2022,
-    "description": "Project description to be added."
-  },
-  {
-    "name": "Kaduna Ring Road Upgrade",
-    "slug": "kaduna-ring-road-upgrade",
-    "location": "Kaduna",
-    "discipline": "Construction & Infrastructure",
-    "year": 2021,
-    "description": "Project description to be added."
-  },
-  {
-    "name": "Lakowe Hospitality Suites",
-    "slug": "lakowe-hospitality-suites",
-    "location": "Lakowe, Lagos",
-    "discipline": "Architecture & Design",
-    "year": 2020,
-    "description": "Project description to be added."
-  },
-  {
-    "name": "Regional Corporate Headquarters",
-    "slug": "regional-corporate-headquarters",
-    "location": "Abuja",
-    "discipline": "Project Delivery",
-    "year": 2019,
-    "description": "Project description to be added."
   }
 ]

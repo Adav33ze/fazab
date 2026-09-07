@@ -20,6 +20,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
+  const gallery = (project.gallery ?? []).filter((image) => image.trim().length > 0);
   const hasVerifiedDescription = project.description && !project.description.toLowerCase().includes("to be added");
 
   return (
@@ -49,6 +50,27 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="lg:col-span-7 lg:col-start-5">
               <h2 className="font-display text-5xl font-medium uppercase leading-[0.94]">Project documentation is being curated.</h2>
               <p className="measure mt-8 text-lg leading-8 text-foreground-muted">{hasVerifiedDescription ? project.description : "Contact FAZAB for verified scope, delivery and project information."}</p>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {gallery.length > 0 && (
+        <section aria-labelledby="project-gallery-heading" className="border-b border-foreground py-20 sm:py-28">
+          <Container size="lg">
+            <h2 id="project-gallery-heading" className="font-display text-5xl font-medium uppercase leading-[0.94]">Project gallery</h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {gallery.map((image, index) => (
+                <figure key={`${image}-${index}`} className="relative aspect-[4/3] border border-foreground/20 bg-surface">
+                  <Image
+                    src={image}
+                    alt={`${project.name} — project photograph ${index + 1}`}
+                    fill
+                    sizes="(min-width: 1600px) 724px, (min-width: 1280px) calc(50vw - 76px), (min-width: 1024px) calc(50vw - 60px), (min-width: 768px) calc(50vw - 44px), (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)"
+                    className="object-contain"
+                  />
+                </figure>
+              ))}
             </div>
           </Container>
         </section>

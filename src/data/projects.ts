@@ -14,6 +14,11 @@ export interface Project {
 
 export const PROJECTS: readonly Project[] = projects;
 
+export function getProjectDescription(project: Project): string {
+  const description = project.description?.trim() ?? "";
+  return /^project description to be added\.?$/i.test(description) ? "" : description;
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
   return PROJECTS.find((project) => project.slug === slug);
 }

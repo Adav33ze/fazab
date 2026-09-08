@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { PROJECTS } from "@/data/projects";
+import { getProjectDescription, PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
   return (
@@ -30,6 +30,9 @@ export function ProjectsPage() {
                   </span>
                   <span className="col-span-4 hidden text-sm text-foreground-muted sm:block">{project.discipline}</span>
                   <span className="col-span-7 flex items-center justify-end gap-5 text-right text-sm sm:col-span-2">{project.location} · {project.year}<ArrowUpRight aria-hidden="true" size={17} /></span>
+                  {getProjectDescription(project) && (
+                    <span className="col-span-12 line-clamp-3 max-w-prose break-words text-sm leading-6 text-foreground-muted sm:col-span-6">{getProjectDescription(project)}</span>
+                  )}
                 </Link>
               </li>
             ))}

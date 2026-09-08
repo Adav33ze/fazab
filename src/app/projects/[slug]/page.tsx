@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { getProjectBySlug, PROJECTS } from "@/data/projects";
+import { getProjectBySlug, getProjectDescription, PROJECTS } from "@/data/projects";
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({ slug: project.slug }));
@@ -21,7 +21,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = getProjectBySlug(slug);
   if (!project) notFound();
   const gallery = (project.gallery ?? []).filter((image) => image.trim().length > 0);
-  const hasVerifiedDescription = project.description && !project.description.toLowerCase().includes("to be added");
+  const description = getProjectDescription(project);
 
   return (
     <>
@@ -43,14 +43,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <figure className="relative min-h-[62svh] border-b border-foreground bg-foreground">
           <Image src={project.image} alt={project.imageAlt || project.name} fill priority sizes="100vw" className="object-cover" />
         </figure>
-      ) : (
+      ) : !description && gallery.length === 0 ? (
         <section className="border-b border-foreground bg-surface py-20 sm:py-28">
           <Container size="lg" className="grid gap-10 lg:grid-cols-12">
             <p className="technical-label text-accent lg:col-span-3">Record in preparation</p>
             <div className="lg:col-span-7 lg:col-start-5">
               <h2 className="font-display text-5xl font-medium uppercase leading-[0.94]">Project documentation is being curated.</h2>
-              <p className="measure mt-8 text-lg leading-8 text-foreground-muted">{hasVerifiedDescription ? project.description : "Contact FAZAB for verified scope, delivery and project information."}</p>
+              <p className="measure mt-8 text-lg leading-8 text-foreground-muted">Contact FAZAB for verified scope, delivery and project information.</p>
             </div>
+          </Container>
+        </section>
+      ) : null}
+
+      {description && (
+        <section aria-labelledby="project-description-heading" className="border-b border-foreground bg-surface py-20 sm:py-28">
+          <Container size="lg" className="grid gap-10 lg:grid-cols-12">
+            <h2 id="project-description-heading" className="font-display text-5xl font-medium uppercase leading-[0.94] lg:col-span-4">About the project</h2>
+            <p className="measure whitespace-pre-line break-words text-lg leading-8 text-foreground-muted lg:col-span-7 lg:col-start-6">{description}</p>
           </Container>
         </section>
       )}

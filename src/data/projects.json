@@ -18,5 +18,17 @@
       "/media/images/projects/fpn14.jpg",
       "/media/images/projects/fpn16.jpg"
     ]
+  },
+  {
+    "name": "Renovation of Block of Six Flats",
+    "slug": "renovation-block-of-six-flats",
+    "location": "National Water Resources Institute",
+    "discipline": "Construction",
+    "year": 2019,
+    "description": "Renovation of Staff Quarters.",
+    "image": "/media/images/projects/file00000000042c81f58470d242dc9765b4.png",
+    "gallery": [
+      "/media/images/projects/file0000000082ec8210a9d5624a02a9384a-1.png"
+    ]
   }
 ]

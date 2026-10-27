@@ -1,14 +1,27 @@
+
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Barlow_Condensed, Hanken_Grotesk } from "next/font/google";
+
 import { Footer } from "@/features/shared/Footer";
 import { Navbar } from "@/features/shared/Navbar";
 import { LifecycleRail } from "@/features/shared/LifecycleRail";
-import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
-import { SITE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION } from "@/lib/seo";
-import contact from "@/data/contact.json";
 
+import {
+  SITE_URL,
+  DEFAULT_TITLE,
+  DEFAULT_DESCRIPTION,
+} from "@/lib/seo";
+
+import contact from "@/data/contact.json";
+import "./globals.css";
+
+// Google Analytics 4
+const GA_MEASUREMENT_ID = "G-2IV46W8LHY";
+
+// Fonts
 const display = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -23,37 +36,122 @@ const body = Hanken_Grotesk({
   display: "swap",
 });
 
+// SEO Metadata
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   manifest: "/site.webmanifest",
+
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      {
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
     ],
-    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    apple: {
+      url: "/apple-touch-icon.png",
+      sizes: "180x180",
+      type: "image/png",
+    },
   },
+
   title: {
     default: DEFAULT_TITLE,
     template: "%s · FAZAB",
   },
+
   description: DEFAULT_DESCRIPTION,
-  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
+
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+// Organization structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "FAZAB International Limited",
+      url: SITE_URL,
+      logo: `${SITE_URL}/brand/fazab-logo.svg`,
+      email: contact.email,
+      telephone: contact.phone,
+      foundingDate: "1998",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Abuja",
+        addressCountry: "NG",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "FAZAB International Limited",
+      url: SITE_URL,
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      inLanguage: "en",
+    },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${display.variable} ${body.variable}`}
+    >
       <body>
-        <StructuredData data={{ "@context": "https://schema.org", "@graph": [
-          { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "FAZAB International Limited", url: SITE_URL, logo: `${SITE_URL}/brand/fazab-logo.svg`, email: contact.email, telephone: contact.phone, foundingDate: "1998", address: { "@type": "PostalAddress", addressLocality: "Abuja", addressCountry: "NG" } },
-          { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "FAZAB International Limited", url: SITE_URL, publisher: { "@id": `${SITE_URL}/#organization` }, inLanguage: "en" },
-        ] }} />
+        {/* Structured Data */}
+        <StructuredData data={structuredData} />
+
+        {/* Main Navigation */}
         <Navbar />
+
+        {/* Page Content */}
         <main>{children}</main>
+
+        {/* Footer */}
         <Footer />
+
+        {/* Project Lifecycle Rail */}
         <LifecycleRail />
+
+        {/* Existing Analytics */}
         <Analytics />
+
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Barlow_Condensed, Hanken_Grotesk } from "next/font/google";
 
 import { Footer } from "@/features/shared/Footer";
@@ -17,9 +16,6 @@ import {
 
 import contact from "@/data/contact.json";
 import "./globals.css";
-
-// Google Analytics 4
-const GA_MEASUREMENT_ID = "G-2IV46W8LHY";
 
 // Fonts
 const display = Barlow_Condensed({
@@ -132,26 +128,7 @@ export default function RootLayout({
         {/* Project Lifecycle Rail */}
         <LifecycleRail />
 
-        {/* Existing Analytics */}
         <Analytics />
-
-        {/* Google Analytics 4 */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
       </body>
     </html>
   );

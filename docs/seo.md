@@ -10,7 +10,7 @@ Next.js Image Optimization remains enabled, with responsive sizes, WebP output a
 
 `experimental.inlineCss` removes the initial blocking stylesheet request but increases HTML size and sacrifices separate stylesheet caching. Fonts remain self-hosted with swap behavior. No new image hosting/CDN account is needed.
 
-Analytics is ready but **requires FAZAB's own GA4 measurement ID** in the build environment as `NEXT_PUBLIC_GA_MEASUREMENT_ID`. Do not reuse another site's ID unless the owner intentionally wants that collection setup. The tag loads after interactivity. Enable GA4 Enhanced Measurement for page loads and browser-history changes and verify Realtime after deployment. `GOOGLE_SITE_VERIFICATION` is optional if an HTML ownership tag is needed; preserve existing DNS or other verification.
+Analytics uses FAZAB's GA4 measurement ID `G-2IV46W8LHY`, supplied by the owner in the layout update. Override it with `NEXT_PUBLIC_GA_MEASUREMENT_ID` if the property changes. A single shared component supplies the tag to prevent duplicate configuration. The tag loads after interactivity. Enable GA4 Enhanced Measurement for page loads and browser-history changes and verify Realtime after deployment. `GOOGLE_SITE_VERIFICATION` is optional if an HTML ownership tag is needed; preserve existing DNS or other verification.
 
 The 27 October 2026 dependency audit reported zero vulnerabilities after updating Next.js, the matching ESLint configuration, Sharp, PostCSS and compatible indirect packages. Recheck with `npm audit` before future releases.
 

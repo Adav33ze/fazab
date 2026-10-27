@@ -8,7 +8,7 @@ export interface Project {
   readonly year: number;
   readonly description: string;
   readonly image: string;
-  readonly imageAlt: string;
+  readonly imageAlt?: string;
   readonly gallery: readonly string[];
 }
 

@@ -118,9 +118,9 @@ a {
 
 @keyframes hero-enter {
   from {
-    clip-path: inset(0 0 100% 0);
-    filter: blur(10px);
-    transform: translateY(2rem);
+    clip-path: inset(0);
+    filter: blur(0);
+    transform: translateY(0.75rem);
   }
   to {
     clip-path: inset(0);

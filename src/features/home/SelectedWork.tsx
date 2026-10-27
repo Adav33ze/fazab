@@ -18,6 +18,7 @@ export function SelectedWork() {
           {PROJECTS.slice(0, 4).map((project, index) => (
             <li key={project.slug}>
               <Link
+                prefetch={false}
                 href={`/projects/${project.slug}`}
                 className="group grid gap-3 border-b border-border py-7 transition-colors hover:border-foreground sm:grid-cols-12 sm:items-end sm:gap-6"
               >

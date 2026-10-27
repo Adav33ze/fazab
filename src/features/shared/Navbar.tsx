@@ -36,7 +36,6 @@ export function Navbar() {
             width={132}
             height={34}
             className="h-7 w-auto brightness-0"
-            priority
           />
         </Link>
 
@@ -45,6 +44,7 @@ export function Navbar() {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
+                prefetch={false}
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}

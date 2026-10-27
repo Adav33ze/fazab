@@ -9,12 +9,12 @@ export function Hero() {
   return (
     <section className="drawing-field drawing-field-live relative min-h-[100svh] overflow-hidden border-b border-foreground pt-20">
       <Container size="lg" className="relative grid min-h-[calc(100svh-5rem)] grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-8 lg:py-10">
-        <div className="hero-enter relative z-20 flex flex-col justify-center lg:col-span-8 lg:pr-8">
+        <div className="hero-enter relative z-20 flex flex-col justify-center lg:col-span-8 lg:col-start-1 lg:row-start-1 lg:pr-8">
           <p className="max-w-md text-sm leading-6 text-foreground-muted">
             FAZAB International Limited brings design, engineering, construction, delivery and the ongoing care of completed properties under one standard of responsibility.
           </p>
           <h1 className="display-balance mt-8 font-display text-[clamp(4.1rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em]">
-            From first line<br />to beyond handover.
+            From first line<br />to beyond handover.<span className="sr-only"> Architecture, engineering and construction in Abuja, Nigeria</span>
           </h1>
           <div className="relative mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <span aria-hidden="true" className="absolute right-full top-7 h-px w-[100vw] bg-accent" />
@@ -30,7 +30,7 @@ export function Hero() {
           </div>
         </div>
 
-        <figure className="registration-frame hero-enter relative min-h-[29rem] overflow-hidden border border-foreground bg-foreground lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:min-h-0 [animation-delay:120ms]">
+        <figure className="registration-frame hero-enter relative min-h-[29rem] overflow-hidden border border-foreground bg-foreground lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:min-h-0 [animation-delay:120ms]">
           <Image
             src="/media/images/studies/structure-study.png"
             alt="Architectural structure in board-formed concrete under construction"
@@ -48,7 +48,7 @@ export function Hero() {
           </figcaption>
         </figure>
 
-        <div className="relative z-10 border-t border-foreground pt-5 lg:col-span-8">
+        <div className="relative z-10 border-t border-foreground pt-5 lg:col-span-8 lg:col-start-1 lg:row-start-2">
           <div className="absolute -top-px left-0 h-px w-1/4 bg-accent" />
           <div className="grid grid-cols-2 gap-y-5 sm:grid-cols-5">
             {PHASES.map((phase, index) => (

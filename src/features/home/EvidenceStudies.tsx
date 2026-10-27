@@ -42,14 +42,14 @@ export function EvidenceStudies() {
         </div>
 
         <div className="mt-16 grid gap-7 lg:grid-cols-12 lg:items-start">
-          {STUDIES.map((study) => (
+          {STUDIES.map((study, index) => (
             <figure key={study.label} className={study.className}>
               <div className={`registration-frame group relative overflow-hidden border border-foreground bg-foreground ${study.aspect}`}>
                 <Image
                   src={study.src}
                   alt={study.alt}
                   fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  sizes={index === 1 ? "(min-width: 1600px) 876px, (min-width: 1024px) 58vw, calc(100vw - 40px)" : "(min-width: 1600px) 604px, (min-width: 1024px) 40vw, calc(100vw - 40px)"}
                   className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
                 />
               </div>

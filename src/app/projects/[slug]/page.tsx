@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { getProjectBySlug, getProjectDescription, PROJECTS } from "@/data/projects";
+import { pageMetadata, SITE_URL, canonicalUrl, projectBreadcrumb } from "@/lib/seo";
+import { StructuredData } from "@/components/StructuredData";
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({ slug: project.slug }));
@@ -13,7 +15,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  return project ? { title: project.name, description: `${project.name}, ${project.location} — a FAZAB project record.` } : { title: "Project not found" };
+  if (!project) notFound();
+  return pageMetadata({ title: `${project.name} | FAZAB`, description: getProjectDescription(project) || `${project.name}, ${project.location} — a FAZAB ${project.discipline.trim().toLowerCase()} project record.`, path: `/projects/${slug}`, image: project.image || undefined });
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -25,6 +28,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <StructuredData data={[
+        { "@context": "https://schema.org", "@type": "CreativeWork", name: project.name, url: canonicalUrl(`/projects/${slug}`), description: description || `${project.discipline.trim()} project record in ${project.location}.`, creator: { "@id": `${SITE_URL}/#organization` }, ...(project.image && { image: new URL(project.image, SITE_URL).href }), contentLocation: { "@type": "Place", name: project.location } },
+        projectBreadcrumb(project.name, slug),
+      ]} />
       <header className="drawing-field drawing-field-live border-b border-foreground pt-20">
         <Container size="lg" className="py-10 sm:py-14">
           <Link href="/projects" className="inline-flex items-center gap-3 text-sm font-semibold underline decoration-foreground/30 hover:decoration-foreground"><ArrowLeft aria-hidden="true" size={17} /> Project register</Link>

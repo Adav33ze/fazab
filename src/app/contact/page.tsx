@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import contact from "@/data/contact.json";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Contact", description: "Start a project conversation with FAZAB International Limited in Abuja, Nigeria." };
+export const metadata: Metadata = pageMetadata({ path: "/contact", title: "Contact FAZAB in Abuja | Discuss Your Project", description: "Start a project conversation with FAZAB International Limited in Abuja, Nigeria." });
 
 export default function Contact() {
   const phone = contact.phone.replace(/\D/g, "");

@@ -4,6 +4,10 @@ import { Footer } from "@/features/shared/Footer";
 import { Navbar } from "@/features/shared/Navbar";
 import { LifecycleRail } from "@/features/shared/LifecycleRail";
 import "./globals.css";
+import { Analytics } from "@/components/Analytics";
+import { StructuredData } from "@/components/StructuredData";
+import { SITE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION } from "@/lib/seo";
+import contact from "@/data/contact.json";
 
 const display = Barlow_Condensed({
   subsets: ["latin"],
@@ -20,7 +24,7 @@ const body = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fazabinternational.com"),
+  metadataBase: new URL(SITE_URL),
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -30,21 +34,26 @@ export const metadata: Metadata = {
     apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   title: {
-    default: "FAZAB International Limited",
+    default: DEFAULT_TITLE,
     template: "%s · FAZAB",
   },
-  description:
-    "FAZAB is a multidisciplinary practice in Abuja, Nigeria, integrating architecture, engineering, surveying, construction, project delivery, property management and facility management.",
+  description: DEFAULT_DESCRIPTION,
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable}`}>
       <body>
+        <StructuredData data={{ "@context": "https://schema.org", "@graph": [
+          { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "FAZAB International Limited", url: SITE_URL, logo: `${SITE_URL}/brand/fazab-logo.svg`, email: contact.email, telephone: contact.phone, foundingDate: "1998", address: { "@type": "PostalAddress", addressLocality: "Abuja", addressCountry: "NG" } },
+          { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "FAZAB International Limited", url: SITE_URL, publisher: { "@id": `${SITE_URL}/#organization` }, inLanguage: "en" },
+        ] }} />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <LifecycleRail />
+        <Analytics />
       </body>
     </html>
   );

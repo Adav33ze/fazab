@@ -112,6 +112,9 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${display.variable} ${body.variable}`}
     >
+      <head>
+        <Analytics />
+      </head>
       <body>
         {/* Structured Data */}
         <StructuredData data={structuredData} />
@@ -128,7 +131,6 @@ export default function RootLayout({
         {/* Project Lifecycle Rail */}
         <LifecycleRail />
 
-        <Analytics />
       </body>
     </html>
   );

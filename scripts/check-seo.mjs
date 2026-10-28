@@ -15,6 +15,10 @@ let images=0;
 for(const pathname of paths){
   const response=await fetch(base+pathname);assert.equal(response.status,200,pathname);
   const html=await response.text();
+  const head=html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1]||'';
+  assert(head.includes('https://www.googletagmanager.com/gtag/js?id='),`Analytics loader must be in initial head: ${pathname}`);
+  assert(head.includes('id="ga-config"')&&head.includes("gtag('config',"),`Analytics configuration must be in initial head: ${pathname}`);
+  assert.equal((html.match(/<script\b[^>]*src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=/g)||[]).length,1,`Duplicate Analytics loader: ${pathname}`);
   const title=html.match(/<title>(.*?)<\/title>/)?.[1];assert(title&&!titles.has(title),`Missing or duplicate title: ${pathname}`);titles.add(title);
   assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length,1,`Expected one H1: ${pathname}`);
   const links=[...html.matchAll(/<link\b[^>]*>/g)].map(m=>m[0]);

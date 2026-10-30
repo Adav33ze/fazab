@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
+import home from "@/data/home.json";
 
 const PHASES = ["Architecture", "Engineering", "Construction", "Handover", "Post-handover"] as const;
 
@@ -10,11 +11,9 @@ export function Hero() {
     <section className="drawing-field drawing-field-live relative min-h-[100svh] overflow-hidden border-b border-foreground pt-20">
       <Container size="lg" className="relative grid min-h-[calc(100svh-5rem)] grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-8 lg:py-10">
         <div className="hero-enter relative z-20 flex flex-col justify-center lg:col-span-8 lg:col-start-1 lg:row-start-1 lg:pr-8">
-          <p className="max-w-md text-sm leading-6 text-foreground-muted">
-            FAZAB International Limited brings design, engineering, construction, delivery and the ongoing care of completed properties under one standard of responsibility.
-          </p>
+          <p className="max-w-md text-sm leading-6 text-foreground-muted">{home.introduction}</p>
           <h1 className="display-balance mt-8 font-display text-[clamp(4.1rem,9vw,6rem)] font-medium uppercase leading-[0.86] tracking-[-0.025em]">
-            From first line<br />to beyond handover.<span className="sr-only"> Architecture, engineering and construction in Abuja, Nigeria</span>
+            {home.heading}
           </h1>
           <div className="relative mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <span aria-hidden="true" className="absolute right-full top-7 h-px w-[100vw] bg-accent" />
@@ -32,19 +31,19 @@ export function Hero() {
 
         <figure className="registration-frame hero-enter relative min-h-[29rem] overflow-hidden border border-foreground bg-foreground lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:min-h-0 [animation-delay:120ms]">
           <Image
-            src="/media/images/studies/structure-study.png"
-            alt="Architectural structure in board-formed concrete under construction"
+            src={home.heroImage}
+            alt={home.heroImageAlt}
             fill
             priority
             sizes="(min-width: 1024px) 34vw, 100vw"
             className="object-cover"
           />
           <div className="absolute inset-x-0 top-0 flex justify-between border-b border-white/50 bg-foreground/75 p-4 text-white">
-            <span className="technical-label">FAZAB / Structure study</span>
-            <span className="technical-label">Visual study</span>
+            <span className="technical-label">{home.eyebrow}</span>
+            <span className="technical-label">Hero image</span>
           </div>
           <figcaption className="absolute inset-x-0 bottom-0 border-t border-white/50 bg-foreground/80 p-4 text-sm leading-5 text-white">
-            Structure, alignment and material discipline.
+            {home.heading}
           </figcaption>
         </figure>
 

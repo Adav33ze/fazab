@@ -81,5 +81,14 @@
       "/media/images/projects/20231030143650.jpg",
       "/media/images/projects/20231030143711.jpg"
     ]
+  },
+  {
+    "name": "Installation of 20kva Solar power solutions",
+    "slug": "20kva-solar",
+    "location": "Abuja Nigera",
+    "discipline": "Engineering",
+    "year": 2023,
+    "description": "Design and Installation of Solar Power system for a residence in Abuja.",
+    "image": "/media/images/projects/sanitexenergy-04-11-2023-0003.jpg"
   }
 ]

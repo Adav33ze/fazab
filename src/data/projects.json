@@ -30,5 +30,24 @@
     "gallery": [
       "/media/images/projects/file0000000082ec8210a9d5624a02a9384a-1.png"
     ]
+  },
+  {
+    "name": "Residential Development",
+    "slug": "kaduna-residence",
+    "location": "Kaduna, Nigeria",
+    "discipline": "Architecture",
+    "year": 2023,
+    "description": "Design and Construction supervision of an 8 bedroom residential home in Kaduna State.",
+    "image": "/media/images/projects/front-left.png",
+    "imageAlt": "3D Render",
+    "gallery": [
+      "/media/images/projects/chatgpt-image-29-oct-2026-141150-3-4.png",
+      "/media/images/projects/modern-mansion-and-construction-verge-at-dusk-2.png",
+      "/media/images/projects/chatgpt-image-29-oct-2026-141157-6-2.png",
+      "/media/images/projects/chatgpt-image-29-oct-2026-141155-5-2.png",
+      "/media/images/projects/chatgpt-image-29-oct-2026-141137-1-2.png",
+      "/media/images/projects/chatgpt-image-29-oct-2026-141153-4-1.png",
+      "/media/images/projects/chatgpt-image-29-oct-2026-141147-2-2.png"
+    ]
   }
 ]

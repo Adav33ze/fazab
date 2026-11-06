@@ -62,5 +62,24 @@
     "gallery": [
       "/media/images/projects/img-20250103-wa0015.jpg"
     ]
+  },
+  {
+    "name": "Interior Design of Residence",
+    "slug": "katampe-residence",
+    "location": "Katampe Extension, Abuja",
+    "discipline": "Interior Design",
+    "year": 2023,
+    "description": "Interior design and remodeling of a residence from carcass to finished",
+    "image": "/media/images/projects/20231030141216.jpg",
+    "imageAlt": "living room interior",
+    "gallery": [
+      "/media/images/projects/20230918162112.jpg",
+      "/media/images/projects/20231030133136.jpg",
+      "/media/images/projects/20231030133232.jpg",
+      "/media/images/projects/20231030132935.jpg",
+      "/media/images/projects/20231030143748.jpg",
+      "/media/images/projects/20231030143650.jpg",
+      "/media/images/projects/20231030143711.jpg"
+    ]
   }
 ]

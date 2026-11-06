@@ -49,5 +49,18 @@
       "/media/images/projects/chatgpt-image-29-oct-2026-141153-4-1.png",
       "/media/images/projects/chatgpt-image-29-oct-2026-141147-2-2.png"
     ]
+  },
+  {
+    "name": "Office Interior Design ",
+    "slug": "sanitex-office",
+    "location": "Wuse, Abuja",
+    "discipline": "Interior Design",
+    "year": 2004,
+    "description": "Remodelling of company showroom for Sanitext Limited",
+    "image": "/media/images/projects/20250110202056.jpg",
+    "imageAlt": "Approach view",
+    "gallery": [
+      "/media/images/projects/img-20250103-wa0015.jpg"
+    ]
   }
 ]
